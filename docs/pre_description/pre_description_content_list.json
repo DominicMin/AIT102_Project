@@ -1,0 +1,406 @@
+[
+    {
+        "type": "text",
+        "text": "DESCRIPTION OF COURSEWORK ",
+        "text_level": 1,
+        "bbox": [
+            281,
+            119,
+            714,
+            142
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "table",
+        "img_path": "images/7e075d6c41b7b3e42bd1c57f8f98a8d913ae5adb7d6a5b20eed7170f96cff83d.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Course Code</td><td rowspan=1 colspan=1>AIT102</td></tr><tr><td rowspan=1 colspan=1>Course Name</td><td rowspan=1 colspan=1> Python and TensorFlow Programming</td></tr><tr><td rowspan=1 colspan=1>Lecturer</td><td rowspan=1 colspan=1>Ruttab Maryam</td></tr><tr><td rowspan=1 colspan=1>Academic Session</td><td rowspan=1 colspan=1>202509</td></tr><tr><td rowspan=1 colspan=1>Assessment Title</td><td rowspan=1 colspan=1> Group project (Presentation)</td></tr></table>",
+        "bbox": [
+            114,
+            157,
+            883,
+            301
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "A. Introduction/ Situation/ Background Information ",
+        "text_level": 1,
+        "bbox": [
+            116,
+            330,
+            563,
+            348
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "This project evaluates the students’ ability to develop a complete python application and solve practical problems that illustrates understanding of core concepts from the course. It also will measure student’s teamwork and communication skills. ",
+        "bbox": [
+            114,
+            356,
+            883,
+            428
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "B. Course Learning Outcomes (CLO) covered ",
+        "text_level": 1,
+        "bbox": [
+            114,
+            460,
+            509,
+            479
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "At the end of this assessment, students are able to: ",
+        "bbox": [
+            116,
+            487,
+            513,
+            505
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "CLO 4: Solve practical problem through teamwork using good communication skills. ",
+        "bbox": [
+            119,
+            513,
+            795,
+            532
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "C. University Policy on Academic Misconduct ",
+        "text_level": 1,
+        "bbox": [
+            114,
+            565,
+            508,
+            584
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1. Academic misconduct is a serious offense in Xiamen University Malaysia. It can be defined as any of the following: ",
+        "bbox": [
+            117,
+            617,
+            883,
+            662
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "i. Plagiarism is submitting or presenting someone else’s work, words, ideas, data or information as your own intentionally or unintentionally. This includes incorporating published and unpublished material, whether in manuscript, printed or electronic form into your work without acknowledging the source (the person and the work).   \nii. Collusion is two or more people collaborating on a piece of work (in part or whole) which is intended to be wholly individual and passed it off as own individual work.   \niii. Cheating is an act of dishonesty or fraud in order to gain an unfair advantage in an assessment. This includes using or attempting to use, or assisting another to use materials ",
+        "bbox": [
+            140,
+            669,
+            887,
+            873
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 1 ",
+        "bbox": [
+            820,
+            922,
+            882,
+            938
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            921,
+            315,
+            936
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "discarded",
+        "text": "XIAMEN UNIVERSITY MALAYSIA OFFICE OF ACADEMIC AFFAIRS 厦門大學馬來西亞分校 Reference No. : XMUM.OAA - 100/2/8-V3.0Effective Date : 1 JUNE 2023 ",
+        "bbox": [
+            116,
+            29,
+            875,
+            92
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "that are prohibited or inappropriate, commissioning work from a third party, falsifying data, or breaching any examination rules. ",
+        "bbox": [
+            171,
+            89,
+            883,
+            135
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "2. All assessments submitted must be the student’s own work, without any materials generated by AI tools, including direct copying and pasting of text or paraphrasing. Any form of academic misconduct, including using prohibited materials or inappropriate assistance, is a serious offense and will result in a zero mark for the entire assessment or part of it. If there is more than one guilty party, such as in case of collusion, all parties involved will receive the same penalty. ",
+        "bbox": [
+            116,
+            167,
+            885,
+            319
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "D. Instruction to Students ",
+        "text_level": 1,
+        "bbox": [
+            116,
+            352,
+            341,
+            369
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "This project is a group project. Each group shall contain 5-6 students. It is not allowed to submit any project that you have submitted before to any other course. Group leader should submit a pptx or pdf file for your project presentation, named as “YourgroupID_Presentation.pptx” to Moodle. ",
+        "bbox": [
+            114,
+            404,
+            883,
+            476
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "The deadline is 18:00, 21 DEC 2025. Overdue penalty will be given to the project that is submitted after the deadline. Presentation date will be on Week 13, 14. ",
+        "bbox": [
+            116,
+            507,
+            877,
+            553
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "E. Evaluation Breakdown ",
+        "text_level": 1,
+        "bbox": [
+            116,
+            587,
+            341,
+            606
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "table",
+        "img_path": "images/b83fd5c236cb6357c696773d719666364697a2541b87b2564015ab03c81caabc.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>No.</td><td rowspan=1 colspan=1>Component Title</td><td rowspan=1 colspan=1>Percentage(%)</td></tr><tr><td rowspan=1 colspan=1>1.</td><td rowspan=1 colspan=1>Presentation Content</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>2.</td><td rowspan=1 colspan=1>Presentation Design</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>3.</td><td rowspan=1 colspan=1>Communication Skills</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>4.</td><td rowspan=1 colspan=1>VIVAquestions</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>TOTAL</td><td rowspan=1 colspan=1>20</td></tr></table>",
+        "bbox": [
+            114,
+            637,
+            882,
+            792
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 2 ",
+        "bbox": [
+            820,
+            922,
+            883,
+            938
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            921,
+            315,
+            936
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "F. Task(s) ",
+        "text_level": 1,
+        "bbox": [
+            116,
+            148,
+            210,
+            166
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Prepare a10 minutes presentation about your project topic. Your presentation shall include but not limited to: ",
+        "bbox": [
+            112,
+            199,
+            885,
+            243
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Project title and team members Introduction about the aim of your project. Input/output The process or the method (Code) Conclusion - Demo Duties for each group member. ",
+        "bbox": [
+            202,
+            262,
+            570,
+            401
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Each group will have 10 minutes to present their work and 2-3 minutes Q & A session. ",
+        "bbox": [
+            114,
+            443,
+            799,
+            462
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 3 ",
+        "bbox": [
+            820,
+            922,
+            883,
+            938
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            922,
+            315,
+            936
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "MARKING RUBRICS ",
+        "text_level": 1,
+        "bbox": [
+            415,
+            116,
+            611,
+            133
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "table",
+        "img_path": "images/cfd5b94fe29efd78519a7f39c321765a2a404d849c54f80c80b97f1b8ee41bf2.jpg",
+        "table_caption": [],
+        "table_footnote": [
+            "Note to students: Please include the marking rubric when submitting your coursework "
+        ],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>ComponentTitle</td><td rowspan=1 colspan=4>Group Project (presentation)</td><td rowspan=1 colspan=1>Percentage(%)</td><td rowspan=1 colspan=2>20</td></tr><tr><td rowspan=2 colspan=1>Criteria</td><td rowspan=1 colspan=5> Score and Descriptors</td><td rowspan=2 colspan=1>Weight(%)</td><td rowspan=2 colspan=1>Marks</td></tr><tr><td rowspan=1 colspan=1>Excellent(5)</td><td rowspan=1 colspan=1>Good(4)</td><td rowspan=1 colspan=1>Average(3)</td><td rowspan=1 colspan=1>NeedImprovement(2)</td><td rowspan=1 colspan=1>Poor(1)</td></tr><tr><td rowspan=1 colspan=1>PresentationContent</td><td rowspan=1 colspan=1>The presentation iswell organized withclear structure, goodlogic and solid content</td><td rowspan=1 colspan=1>The presentation is completedwithrequiredcontent.</td><td rowspan=1 colspan=1>The presentation iscompletedwith mostrequiredcontent.</td><td rowspan=1 colspan=1>The presentation is not wellorganized.</td><td rowspan=1 colspan=1>very poor presentationor no presentation is submitted.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>PresentationDesign</td><td rowspan=1 colspan=1>The design looks veryprofessional, withclear, high-qualitymages, neat alignmentand good use of colorsEverything matches well,making it easyand enjoyable to follow</td><td rowspan=1 colspan=1>The design isVnice,with helpfulVisuals and mostlymatching colorsand fonts. It&#x27;s easy to look at, though smallimprovements could make it even better.</td><td rowspan=1 colspan=1>The design is plain, with some usefulvisuals, but thecolors and fontsHon&#x27;t always matchlIt&#x27;s organized but not very eye-catching.</td><td rowspan=1 colspan=1>The design iscluttered and usesoutdated visuals.The colors andfonts areinconsistent,making it lookbusy and harder tdfollow.</td><td rowspan=1 colspan=1>The design ismessy, with low-quality visuals and randomcolors and fonts.It&#x27;s hard tofollow, andnothing feelsorganized orconnected.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>CommunicationSkills</td><td rowspan=1 colspan=1>Start, maintain andend a presentation naturally. Use appropriate eyecontact and bodylanguage. Take turnto talk with respect.</td><td rowspan=1 colspan=1>Start, maintain and end a presentation ina friendlymanner.Maintain good eye contact. Take turn totalk withrespect</td><td rowspan=1 colspan=1>Take the initiative to starta presentation.Appropriate eye contact.Take turn to talk</td><td rowspan=1 colspan=1> Take part in presentationwhen initiatedby others.Limited eyeContact.Interfere presentation</td><td rowspan=1 colspan=1>. Less interest to participatein presentationNo eyecontacts.Alwaysdisruptpresentation</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>OverallImpression</td><td rowspan=1 colspan=1>The presenterimpressively showsprofessionalism,confidence, andengagement,demonstratingexceptionalknowledge andexpertise in the subject</td><td rowspan=1 colspan=1> The presenterexudesprofessionalism, confidence,andcompetence,shows a goodlevel of knowledge andexpertise in thesubject</td><td rowspan=1 colspan=1>The presenterdisplays a basiclevel of professionalismwith less confidence, an average level ofknowledge in thesubject</td><td rowspan=1 colspan=1>The presenter&#x27;slackingprofessionalism, confidence,and engagement,along withlimitedknowledge inthe subject,</td><td rowspan=1 colspan=1>The presenter&#x27;sunprofessionalbehavior, lackof confidence,disengagement,andsignificantlack ofknowledgeand expertisein the subject.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=6>TOTAL</td><td rowspan=1 colspan=1>20</td><td rowspan=1 colspan=1></td></tr></table>",
+        "bbox": [
+            70,
+            145,
+            926,
+            828
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            922,
+            315,
+            936
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 4 ",
+        "bbox": [
+            820,
+            922,
+            882,
+            938
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "APPENDIX 1 ",
+        "bbox": [
+            764,
+            90,
+            882,
+            107
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 5 ",
+        "bbox": [
+            820,
+            922,
+            882,
+            938
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            922,
+            315,
+            936
+        ],
+        "page_idx": 4
+    }
+]

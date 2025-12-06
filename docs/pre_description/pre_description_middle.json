@@ -1,0 +1,3643 @@
+{
+    "pdf_info": [
+        {
+            "preproc_blocks": [
+                {
+                    "type": "title",
+                    "bbox": [
+                        172,
+                        95,
+                        437,
+                        113
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                172,
+                                95,
+                                439,
+                                116
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        172,
+                                        95,
+                                        439,
+                                        116
+                                    ],
+                                    "score": 1.0,
+                                    "content": "DESCRIPTION OF COURSEWORK",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        70,
+                        125,
+                        541,
+                        239
+                    ],
+                    "blocks": [
+                        {
+                            "type": "table_body",
+                            "bbox": [
+                                70,
+                                125,
+                                541,
+                                239
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        125,
+                                        541,
+                                        239
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                125,
+                                                541,
+                                                239
+                                            ],
+                                            "score": 0.981,
+                                            "html": "<table><tr><td rowspan=1 colspan=1>Course Code</td><td rowspan=1 colspan=1>AIT102</td></tr><tr><td rowspan=1 colspan=1>Course Name</td><td rowspan=1 colspan=1> Python and TensorFlow Programming</td></tr><tr><td rowspan=1 colspan=1>Lecturer</td><td rowspan=1 colspan=1>Ruttab Maryam</td></tr><tr><td rowspan=1 colspan=1>Academic Session</td><td rowspan=1 colspan=1>202509</td></tr><tr><td rowspan=1 colspan=1>Assessment Title</td><td rowspan=1 colspan=1> Group project (Presentation)</td></tr></table>",
+                                            "type": "table",
+                                            "image_path": "7e075d6c41b7b3e42bd1c57f8f98a8d913ae5adb7d6a5b20eed7170f96cff83d.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 2,
+                            "virtual_lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        125,
+                                        541,
+                                        163.0
+                                    ],
+                                    "spans": [],
+                                    "index": 1
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        163.0,
+                                        541,
+                                        201.0
+                                    ],
+                                    "spans": [],
+                                    "index": 2
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        201.0,
+                                        541,
+                                        239.0
+                                    ],
+                                    "spans": [],
+                                    "index": 3
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 2
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        262,
+                        345,
+                        276
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                261,
+                                344,
+                                278
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        261,
+                                        344,
+                                        278
+                                    ],
+                                    "score": 1.0,
+                                    "content": "A. Introduction/ Situation/ Background Information",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 4
+                        }
+                    ],
+                    "index": 4
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        70,
+                        282,
+                        541,
+                        339
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                281,
+                                542,
+                                299
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        281,
+                                        542,
+                                        299
+                                    ],
+                                    "score": 1.0,
+                                    "content": "This project evaluates the students’ ability to develop a complete python application and solve",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 5
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                303,
+                                541,
+                                318
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        303,
+                                        541,
+                                        318
+                                    ],
+                                    "score": 1.0,
+                                    "content": "practical problems that illustrates understanding of core concepts from the course. It also will",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 6
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                324,
+                                340,
+                                339
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        324,
+                                        340,
+                                        339
+                                    ],
+                                    "score": 1.0,
+                                    "content": "measure student’s teamwork and communication skills.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 7
+                        }
+                    ],
+                    "index": 6
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        70,
+                        365,
+                        312,
+                        380
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                68,
+                                363,
+                                313,
+                                383
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        68,
+                                        363,
+                                        313,
+                                        383
+                                    ],
+                                    "score": 1.0,
+                                    "content": "B. Course Learning Outcomes (CLO) covered",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 8
+                        }
+                    ],
+                    "index": 8
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        71,
+                        386,
+                        314,
+                        400
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                386,
+                                315,
+                                401
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        386,
+                                        315,
+                                        401
+                                    ],
+                                    "score": 1.0,
+                                    "content": "At the end of this assessment, students are able to:",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 9
+                        }
+                    ],
+                    "index": 9
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        73,
+                        407,
+                        487,
+                        422
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                405,
+                                488,
+                                423
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        405,
+                                        488,
+                                        423
+                                    ],
+                                    "score": 1.0,
+                                    "content": "CLO 4: Solve practical problem through teamwork using good communication skills.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 10
+                        }
+                    ],
+                    "index": 10
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        70,
+                        448,
+                        311,
+                        463
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                448,
+                                312,
+                                465
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        448,
+                                        312,
+                                        465
+                                    ],
+                                    "score": 1.0,
+                                    "content": "C. University Policy on Academic Misconduct",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 11
+                        }
+                    ],
+                    "index": 11
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        72,
+                        489,
+                        541,
+                        525
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                489,
+                                541,
+                                505
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        489,
+                                        541,
+                                        505
+                                    ],
+                                    "score": 1.0,
+                                    "content": "1. Academic misconduct is a serious offense in Xiamen University Malaysia. It can be defined",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 12
+                        },
+                        {
+                            "bbox": [
+                                86,
+                                508,
+                                206,
+                                528
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        86,
+                                        508,
+                                        206,
+                                        528
+                                    ],
+                                    "score": 1.0,
+                                    "content": "as any of the following:",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 13
+                        }
+                    ],
+                    "index": 12.5
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        86,
+                        530,
+                        543,
+                        692
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                86,
+                                530,
+                                541,
+                                547
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        86,
+                                        530,
+                                        541,
+                                        547
+                                    ],
+                                    "score": 1.0,
+                                    "content": "i. Plagiarism is submitting or presenting someone else’s work, words, ideas, data or",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 14
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                551,
+                                541,
+                                568
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        551,
+                                        541,
+                                        568
+                                    ],
+                                    "score": 1.0,
+                                    "content": "information as your own intentionally or unintentionally. This includes incorporating",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 15
+                        },
+                        {
+                            "bbox": [
+                                105,
+                                572,
+                                541,
+                                588
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        105,
+                                        572,
+                                        541,
+                                        588
+                                    ],
+                                    "score": 1.0,
+                                    "content": "published and unpublished material, whether in manuscript, printed or electronic form into",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 16
+                        },
+                        {
+                            "bbox": [
+                                105,
+                                594,
+                                456,
+                                609
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        105,
+                                        594,
+                                        456,
+                                        609
+                                    ],
+                                    "score": 1.0,
+                                    "content": "your work without acknowledging the source (the person and the work).",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 17
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                614,
+                                542,
+                                630
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        614,
+                                        542,
+                                        630
+                                    ],
+                                    "score": 1.0,
+                                    "content": "ii. Collusion is two or more people collaborating on a piece of work (in part or whole) which",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 18
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                635,
+                                476,
+                                650
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        635,
+                                        476,
+                                        650
+                                    ],
+                                    "score": 1.0,
+                                    "content": "is intended to be wholly individual and passed it off as own individual work.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 19
+                        },
+                        {
+                            "bbox": [
+                                87,
+                                654,
+                                541,
+                                672
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        87,
+                                        654,
+                                        541,
+                                        672
+                                    ],
+                                    "score": 1.0,
+                                    "content": "iii. Cheating is an act of dishonesty or fraud in order to gain an unfair advantage in an",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 20
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                677,
+                                540,
+                                691
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        677,
+                                        540,
+                                        691
+                                    ],
+                                    "score": 1.0,
+                                    "content": "assessment. This includes using or attempting to use, or assisting another to use materials",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 21
+                        }
+                    ],
+                    "index": 17.5
+                }
+            ],
+            "page_idx": 0,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        502,
+                        731,
+                        540,
+                        743
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                500,
+                                729,
+                                542,
+                                745
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        500,
+                                        729,
+                                        542,
+                                        745
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Page | 1",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        70,
+                        730,
+                        193,
+                        742
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                729,
+                                194,
+                                744
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        729,
+                                        194,
+                                        744
+                                    ],
+                                    "score": 1.0,
+                                    "content": "XMUM.OAA - 100/2/8-V3.0",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        71,
+                        23,
+                        536,
+                        73
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                119,
+                                26,
+                                535,
+                                45
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        119,
+                                        26,
+                                        371,
+                                        45
+                                    ],
+                                    "score": 0.991,
+                                    "content": "XIAMEN UNIVERSITY MALAYSIA",
+                                    "type": "text"
+                                },
+                                {
+                                    "bbox": [
+                                        376,
+                                        27,
+                                        535,
+                                        39
+                                    ],
+                                    "score": 1.0,
+                                    "content": "OFFICE OF ACADEMIC AFFAIRS",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                138,
+                                41,
+                                535,
+                                72
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        138,
+                                        43,
+                                        356,
+                                        72
+                                    ],
+                                    "score": 0.991,
+                                    "content": "厦門大學馬來西亞分校",
+                                    "type": "text"
+                                },
+                                {
+                                    "bbox": [
+                                        376,
+                                        41,
+                                        535,
+                                        64
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Reference No. : XMUM.OAA - 100/2/8-V3.0Effective Date : 1 JUNE 2023",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "para_blocks": [
+                {
+                    "type": "title",
+                    "bbox": [
+                        172,
+                        95,
+                        437,
+                        113
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                172,
+                                95,
+                                439,
+                                116
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        172,
+                                        95,
+                                        439,
+                                        116
+                                    ],
+                                    "score": 1.0,
+                                    "content": "DESCRIPTION OF COURSEWORK",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        70,
+                        125,
+                        541,
+                        239
+                    ],
+                    "blocks": [
+                        {
+                            "type": "table_body",
+                            "bbox": [
+                                70,
+                                125,
+                                541,
+                                239
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        125,
+                                        541,
+                                        239
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                125,
+                                                541,
+                                                239
+                                            ],
+                                            "score": 0.981,
+                                            "html": "<table><tr><td rowspan=1 colspan=1>Course Code</td><td rowspan=1 colspan=1>AIT102</td></tr><tr><td rowspan=1 colspan=1>Course Name</td><td rowspan=1 colspan=1> Python and TensorFlow Programming</td></tr><tr><td rowspan=1 colspan=1>Lecturer</td><td rowspan=1 colspan=1>Ruttab Maryam</td></tr><tr><td rowspan=1 colspan=1>Academic Session</td><td rowspan=1 colspan=1>202509</td></tr><tr><td rowspan=1 colspan=1>Assessment Title</td><td rowspan=1 colspan=1> Group project (Presentation)</td></tr></table>",
+                                            "type": "table",
+                                            "image_path": "7e075d6c41b7b3e42bd1c57f8f98a8d913ae5adb7d6a5b20eed7170f96cff83d.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 2,
+                            "virtual_lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        125,
+                                        541,
+                                        163.0
+                                    ],
+                                    "spans": [],
+                                    "index": 1
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        163.0,
+                                        541,
+                                        201.0
+                                    ],
+                                    "spans": [],
+                                    "index": 2
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        201.0,
+                                        541,
+                                        239.0
+                                    ],
+                                    "spans": [],
+                                    "index": 3
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 2
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        262,
+                        345,
+                        276
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                261,
+                                344,
+                                278
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        261,
+                                        344,
+                                        278
+                                    ],
+                                    "score": 1.0,
+                                    "content": "A. Introduction/ Situation/ Background Information",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 4
+                        }
+                    ],
+                    "index": 4
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        70,
+                        282,
+                        541,
+                        339
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                281,
+                                542,
+                                299
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        281,
+                                        542,
+                                        299
+                                    ],
+                                    "score": 1.0,
+                                    "content": "This project evaluates the students’ ability to develop a complete python application and solve",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 5
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                303,
+                                541,
+                                318
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        303,
+                                        541,
+                                        318
+                                    ],
+                                    "score": 1.0,
+                                    "content": "practical problems that illustrates understanding of core concepts from the course. It also will",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 6
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                324,
+                                340,
+                                339
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        324,
+                                        340,
+                                        339
+                                    ],
+                                    "score": 1.0,
+                                    "content": "measure student’s teamwork and communication skills.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 7
+                        }
+                    ],
+                    "index": 6,
+                    "bbox_fs": [
+                        69,
+                        281,
+                        542,
+                        339
+                    ]
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        70,
+                        365,
+                        312,
+                        380
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                68,
+                                363,
+                                313,
+                                383
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        68,
+                                        363,
+                                        313,
+                                        383
+                                    ],
+                                    "score": 1.0,
+                                    "content": "B. Course Learning Outcomes (CLO) covered",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 8
+                        }
+                    ],
+                    "index": 8
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        71,
+                        386,
+                        314,
+                        400
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                386,
+                                315,
+                                401
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        386,
+                                        315,
+                                        401
+                                    ],
+                                    "score": 1.0,
+                                    "content": "At the end of this assessment, students are able to:",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 9
+                        }
+                    ],
+                    "index": 9,
+                    "bbox_fs": [
+                        70,
+                        386,
+                        315,
+                        401
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        73,
+                        407,
+                        487,
+                        422
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                405,
+                                488,
+                                423
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        405,
+                                        488,
+                                        423
+                                    ],
+                                    "score": 1.0,
+                                    "content": "CLO 4: Solve practical problem through teamwork using good communication skills.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 10
+                        }
+                    ],
+                    "index": 10,
+                    "bbox_fs": [
+                        70,
+                        405,
+                        488,
+                        423
+                    ]
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        70,
+                        448,
+                        311,
+                        463
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                448,
+                                312,
+                                465
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        448,
+                                        312,
+                                        465
+                                    ],
+                                    "score": 1.0,
+                                    "content": "C. University Policy on Academic Misconduct",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 11
+                        }
+                    ],
+                    "index": 11
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        72,
+                        489,
+                        541,
+                        525
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                489,
+                                541,
+                                505
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        489,
+                                        541,
+                                        505
+                                    ],
+                                    "score": 1.0,
+                                    "content": "1. Academic misconduct is a serious offense in Xiamen University Malaysia. It can be defined",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 12
+                        },
+                        {
+                            "bbox": [
+                                86,
+                                508,
+                                206,
+                                528
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        86,
+                                        508,
+                                        206,
+                                        528
+                                    ],
+                                    "score": 1.0,
+                                    "content": "as any of the following:",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 13
+                        }
+                    ],
+                    "index": 12.5,
+                    "bbox_fs": [
+                        70,
+                        489,
+                        541,
+                        528
+                    ]
+                },
+                {
+                    "type": "list",
+                    "bbox": [
+                        86,
+                        530,
+                        543,
+                        692
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                86,
+                                530,
+                                541,
+                                547
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        86,
+                                        530,
+                                        541,
+                                        547
+                                    ],
+                                    "score": 1.0,
+                                    "content": "i. Plagiarism is submitting or presenting someone else’s work, words, ideas, data or",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 14,
+                            "is_list_start_line": true
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                551,
+                                541,
+                                568
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        551,
+                                        541,
+                                        568
+                                    ],
+                                    "score": 1.0,
+                                    "content": "information as your own intentionally or unintentionally. This includes incorporating",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 15
+                        },
+                        {
+                            "bbox": [
+                                105,
+                                572,
+                                541,
+                                588
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        105,
+                                        572,
+                                        541,
+                                        588
+                                    ],
+                                    "score": 1.0,
+                                    "content": "published and unpublished material, whether in manuscript, printed or electronic form into",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 16
+                        },
+                        {
+                            "bbox": [
+                                105,
+                                594,
+                                456,
+                                609
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        105,
+                                        594,
+                                        456,
+                                        609
+                                    ],
+                                    "score": 1.0,
+                                    "content": "your work without acknowledging the source (the person and the work).",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 17,
+                            "is_list_end_line": true
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                614,
+                                542,
+                                630
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        614,
+                                        542,
+                                        630
+                                    ],
+                                    "score": 1.0,
+                                    "content": "ii. Collusion is two or more people collaborating on a piece of work (in part or whole) which",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 18,
+                            "is_list_start_line": true
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                635,
+                                476,
+                                650
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        635,
+                                        476,
+                                        650
+                                    ],
+                                    "score": 1.0,
+                                    "content": "is intended to be wholly individual and passed it off as own individual work.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 19,
+                            "is_list_end_line": true
+                        },
+                        {
+                            "bbox": [
+                                87,
+                                654,
+                                541,
+                                672
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        87,
+                                        654,
+                                        541,
+                                        672
+                                    ],
+                                    "score": 1.0,
+                                    "content": "iii. Cheating is an act of dishonesty or fraud in order to gain an unfair advantage in an",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 20,
+                            "is_list_start_line": true
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                677,
+                                540,
+                                691
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        677,
+                                        540,
+                                        691
+                                    ],
+                                    "score": 1.0,
+                                    "content": "assessment. This includes using or attempting to use, or assisting another to use materials",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 21
+                        }
+                    ],
+                    "index": 17.5,
+                    "bbox_fs": [
+                        86,
+                        530,
+                        542,
+                        691
+                    ]
+                }
+            ]
+        },
+        {
+            "preproc_blocks": [
+                {
+                    "type": "text",
+                    "bbox": [
+                        105,
+                        71,
+                        541,
+                        107
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                105,
+                                70,
+                                542,
+                                88
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        105,
+                                        70,
+                                        542,
+                                        88
+                                    ],
+                                    "score": 1.0,
+                                    "content": "that are prohibited or inappropriate, commissioning work from a third party, falsifying data,",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                93,
+                                281,
+                                107
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        93,
+                                        281,
+                                        107
+                                    ],
+                                    "score": 1.0,
+                                    "content": "or breaching any examination rules.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 1
+                        }
+                    ],
+                    "index": 0.5
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        71,
+                        133,
+                        542,
+                        253
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                133,
+                                541,
+                                149
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        133,
+                                        541,
+                                        149
+                                    ],
+                                    "score": 1.0,
+                                    "content": "2. All assessments submitted must be the student’s own work, without any materials generated",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 2
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                154,
+                                542,
+                                171
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        154,
+                                        542,
+                                        171
+                                    ],
+                                    "score": 1.0,
+                                    "content": "by AI tools, including direct copying and pasting of text or paraphrasing. Any form of",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 3
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                175,
+                                541,
+                                190
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        175,
+                                        541,
+                                        190
+                                    ],
+                                    "score": 1.0,
+                                    "content": "academic misconduct, including using prohibited materials or inappropriate assistance, is a",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 4
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                196,
+                                541,
+                                211
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        196,
+                                        541,
+                                        211
+                                    ],
+                                    "score": 1.0,
+                                    "content": "serious offense and will result in a zero mark for the entire assessment or part of it. If there is",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 5
+                        },
+                        {
+                            "bbox": [
+                                87,
+                                217,
+                                541,
+                                231
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        87,
+                                        217,
+                                        541,
+                                        231
+                                    ],
+                                    "score": 1.0,
+                                    "content": "more than one guilty party, such as in case of collusion, all parties involved will receive the",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 6
+                        },
+                        {
+                            "bbox": [
+                                87,
+                                237,
+                                158,
+                                254
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        87,
+                                        237,
+                                        158,
+                                        254
+                                    ],
+                                    "score": 1.0,
+                                    "content": "same penalty.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 7
+                        }
+                    ],
+                    "index": 4.5
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        279,
+                        209,
+                        293
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                278,
+                                209,
+                                294
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        278,
+                                        209,
+                                        294
+                                    ],
+                                    "score": 1.0,
+                                    "content": "D. Instruction to Students",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 8
+                        }
+                    ],
+                    "index": 8
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        70,
+                        320,
+                        541,
+                        377
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                320,
+                                542,
+                                335
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        320,
+                                        542,
+                                        335
+                                    ],
+                                    "score": 1.0,
+                                    "content": "This project is a group project. Each group shall contain 5-6 students. It is not allowed to submit",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 9
+                        },
+                        {
+                            "bbox": [
+                                68,
+                                339,
+                                542,
+                                357
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        68,
+                                        339,
+                                        542,
+                                        357
+                                    ],
+                                    "score": 1.0,
+                                    "content": "any project that you have submitted before to any other course. Group leader should submit a pptx",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 10
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                361,
+                                537,
+                                377
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        361,
+                                        537,
+                                        377
+                                    ],
+                                    "score": 1.0,
+                                    "content": "or pdf file for your project presentation, named as “YourgroupID_Presentation.pptx” to Moodle.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 11
+                        }
+                    ],
+                    "index": 10
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        71,
+                        402,
+                        537,
+                        438
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                402,
+                                536,
+                                418
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        402,
+                                        536,
+                                        418
+                                    ],
+                                    "score": 1.0,
+                                    "content": "The deadline is 18:00, 21 DEC 2025. Overdue penalty will be given to the project that is",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 12
+                        },
+                        {
+                            "bbox": [
+                                70,
+                                423,
+                                414,
+                                439
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        423,
+                                        414,
+                                        439
+                                    ],
+                                    "score": 1.0,
+                                    "content": "submitted after the deadline. Presentation date will be on Week 13, 14.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 13
+                        }
+                    ],
+                    "index": 12.5
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        465,
+                        209,
+                        480
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                464,
+                                209,
+                                481
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        464,
+                                        209,
+                                        481
+                                    ],
+                                    "score": 1.0,
+                                    "content": "E. Evaluation Breakdown",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 14
+                        }
+                    ],
+                    "index": 14
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        70,
+                        505,
+                        540,
+                        628
+                    ],
+                    "blocks": [
+                        {
+                            "type": "table_body",
+                            "bbox": [
+                                70,
+                                505,
+                                540,
+                                628
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        505,
+                                        540,
+                                        628
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                505,
+                                                540,
+                                                628
+                                            ],
+                                            "score": 0.983,
+                                            "html": "<table><tr><td rowspan=1 colspan=1>No.</td><td rowspan=1 colspan=1>Component Title</td><td rowspan=1 colspan=1>Percentage(%)</td></tr><tr><td rowspan=1 colspan=1>1.</td><td rowspan=1 colspan=1>Presentation Content</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>2.</td><td rowspan=1 colspan=1>Presentation Design</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>3.</td><td rowspan=1 colspan=1>Communication Skills</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>4.</td><td rowspan=1 colspan=1>VIVAquestions</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>TOTAL</td><td rowspan=1 colspan=1>20</td></tr></table>",
+                                            "type": "table",
+                                            "image_path": "b83fd5c236cb6357c696773d719666364697a2541b87b2564015ab03c81caabc.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 16,
+                            "virtual_lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        505,
+                                        540,
+                                        546.0
+                                    ],
+                                    "spans": [],
+                                    "index": 15
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        546.0,
+                                        540,
+                                        587.0
+                                    ],
+                                    "spans": [],
+                                    "index": 16
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        587.0,
+                                        540,
+                                        628.0
+                                    ],
+                                    "spans": [],
+                                    "index": 17
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 16
+                }
+            ],
+            "page_idx": 1,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        502,
+                        731,
+                        541,
+                        743
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                500,
+                                729,
+                                543,
+                                745
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        500,
+                                        729,
+                                        543,
+                                        745
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Page | 2",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        70,
+                        730,
+                        193,
+                        742
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                729,
+                                194,
+                                744
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        729,
+                                        194,
+                                        744
+                                    ],
+                                    "score": 1.0,
+                                    "content": "XMUM.OAA - 100/2/8-V3.0",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "para_blocks": [
+                {
+                    "type": "text",
+                    "bbox": [
+                        105,
+                        71,
+                        541,
+                        107
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                105,
+                                70,
+                                542,
+                                88
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        105,
+                                        70,
+                                        542,
+                                        88
+                                    ],
+                                    "score": 1.0,
+                                    "content": "that are prohibited or inappropriate, commissioning work from a third party, falsifying data,",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        },
+                        {
+                            "bbox": [
+                                106,
+                                93,
+                                281,
+                                107
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        106,
+                                        93,
+                                        281,
+                                        107
+                                    ],
+                                    "score": 1.0,
+                                    "content": "or breaching any examination rules.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 1
+                        }
+                    ],
+                    "index": 0.5,
+                    "bbox_fs": [
+                        105,
+                        70,
+                        542,
+                        107
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        71,
+                        133,
+                        542,
+                        253
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                133,
+                                541,
+                                149
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        133,
+                                        541,
+                                        149
+                                    ],
+                                    "score": 1.0,
+                                    "content": "2. All assessments submitted must be the student’s own work, without any materials generated",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 2
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                154,
+                                542,
+                                171
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        154,
+                                        542,
+                                        171
+                                    ],
+                                    "score": 1.0,
+                                    "content": "by AI tools, including direct copying and pasting of text or paraphrasing. Any form of",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 3
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                175,
+                                541,
+                                190
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        175,
+                                        541,
+                                        190
+                                    ],
+                                    "score": 1.0,
+                                    "content": "academic misconduct, including using prohibited materials or inappropriate assistance, is a",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 4
+                        },
+                        {
+                            "bbox": [
+                                88,
+                                196,
+                                541,
+                                211
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        88,
+                                        196,
+                                        541,
+                                        211
+                                    ],
+                                    "score": 1.0,
+                                    "content": "serious offense and will result in a zero mark for the entire assessment or part of it. If there is",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 5
+                        },
+                        {
+                            "bbox": [
+                                87,
+                                217,
+                                541,
+                                231
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        87,
+                                        217,
+                                        541,
+                                        231
+                                    ],
+                                    "score": 1.0,
+                                    "content": "more than one guilty party, such as in case of collusion, all parties involved will receive the",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 6
+                        },
+                        {
+                            "bbox": [
+                                87,
+                                237,
+                                158,
+                                254
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        87,
+                                        237,
+                                        158,
+                                        254
+                                    ],
+                                    "score": 1.0,
+                                    "content": "same penalty.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 7
+                        }
+                    ],
+                    "index": 4.5,
+                    "bbox_fs": [
+                        69,
+                        133,
+                        542,
+                        254
+                    ]
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        279,
+                        209,
+                        293
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                278,
+                                209,
+                                294
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        278,
+                                        209,
+                                        294
+                                    ],
+                                    "score": 1.0,
+                                    "content": "D. Instruction to Students",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 8
+                        }
+                    ],
+                    "index": 8
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        70,
+                        320,
+                        541,
+                        377
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                320,
+                                542,
+                                335
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        320,
+                                        542,
+                                        335
+                                    ],
+                                    "score": 1.0,
+                                    "content": "This project is a group project. Each group shall contain 5-6 students. It is not allowed to submit",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 9
+                        },
+                        {
+                            "bbox": [
+                                68,
+                                339,
+                                542,
+                                357
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        68,
+                                        339,
+                                        542,
+                                        357
+                                    ],
+                                    "score": 1.0,
+                                    "content": "any project that you have submitted before to any other course. Group leader should submit a pptx",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 10
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                361,
+                                537,
+                                377
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        361,
+                                        537,
+                                        377
+                                    ],
+                                    "score": 1.0,
+                                    "content": "or pdf file for your project presentation, named as “YourgroupID_Presentation.pptx” to Moodle.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 11
+                        }
+                    ],
+                    "index": 10,
+                    "bbox_fs": [
+                        68,
+                        320,
+                        542,
+                        377
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        71,
+                        402,
+                        537,
+                        438
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                402,
+                                536,
+                                418
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        402,
+                                        536,
+                                        418
+                                    ],
+                                    "score": 1.0,
+                                    "content": "The deadline is 18:00, 21 DEC 2025. Overdue penalty will be given to the project that is",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 12
+                        },
+                        {
+                            "bbox": [
+                                70,
+                                423,
+                                414,
+                                439
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        423,
+                                        414,
+                                        439
+                                    ],
+                                    "score": 1.0,
+                                    "content": "submitted after the deadline. Presentation date will be on Week 13, 14.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 13
+                        }
+                    ],
+                    "index": 12.5,
+                    "bbox_fs": [
+                        70,
+                        402,
+                        536,
+                        439
+                    ]
+                },
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        465,
+                        209,
+                        480
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                464,
+                                209,
+                                481
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        464,
+                                        209,
+                                        481
+                                    ],
+                                    "score": 1.0,
+                                    "content": "E. Evaluation Breakdown",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 14
+                        }
+                    ],
+                    "index": 14
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        70,
+                        505,
+                        540,
+                        628
+                    ],
+                    "blocks": [
+                        {
+                            "type": "table_body",
+                            "bbox": [
+                                70,
+                                505,
+                                540,
+                                628
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        505,
+                                        540,
+                                        628
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                505,
+                                                540,
+                                                628
+                                            ],
+                                            "score": 0.983,
+                                            "html": "<table><tr><td rowspan=1 colspan=1>No.</td><td rowspan=1 colspan=1>Component Title</td><td rowspan=1 colspan=1>Percentage(%)</td></tr><tr><td rowspan=1 colspan=1>1.</td><td rowspan=1 colspan=1>Presentation Content</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>2.</td><td rowspan=1 colspan=1>Presentation Design</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>3.</td><td rowspan=1 colspan=1>Communication Skills</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>4.</td><td rowspan=1 colspan=1>VIVAquestions</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>TOTAL</td><td rowspan=1 colspan=1>20</td></tr></table>",
+                                            "type": "table",
+                                            "image_path": "b83fd5c236cb6357c696773d719666364697a2541b87b2564015ab03c81caabc.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 16,
+                            "virtual_lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        505,
+                                        540,
+                                        546.0
+                                    ],
+                                    "spans": [],
+                                    "index": 15
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        546.0,
+                                        540,
+                                        587.0
+                                    ],
+                                    "spans": [],
+                                    "index": 16
+                                },
+                                {
+                                    "bbox": [
+                                        70,
+                                        587.0,
+                                        540,
+                                        628.0
+                                    ],
+                                    "spans": [],
+                                    "index": 17
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 16
+                }
+            ]
+        },
+        {
+            "preproc_blocks": [
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        118,
+                        129,
+                        132
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                115,
+                                130,
+                                135
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        115,
+                                        130,
+                                        135
+                                    ],
+                                    "score": 1.0,
+                                    "content": "F. Task(s)",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        69,
+                        158,
+                        542,
+                        193
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                157,
+                                543,
+                                176
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        157,
+                                        543,
+                                        176
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Prepare a10 minutes presentation about your project topic. Your presentation shall include but not",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 1
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                177,
+                                124,
+                                195
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        177,
+                                        124,
+                                        195
+                                    ],
+                                    "score": 1.0,
+                                    "content": "limited to:",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 2
+                        }
+                    ],
+                    "index": 1.5
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        124,
+                        208,
+                        349,
+                        318
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                142,
+                                208,
+                                295,
+                                223
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        142,
+                                        208,
+                                        295,
+                                        223
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Project title and team members",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 3
+                        },
+                        {
+                            "bbox": [
+                                142,
+                                223,
+                                349,
+                                239
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        142,
+                                        223,
+                                        349,
+                                        239
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Introduction about the aim of your project.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 4
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                240,
+                                205,
+                                256
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        240,
+                                        205,
+                                        256
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Input/output",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 5
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                255,
+                                309,
+                                271
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        255,
+                                        309,
+                                        271
+                                    ],
+                                    "score": 1.0,
+                                    "content": "The process or the method (Code)",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 6
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                271,
+                                200,
+                                286
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        271,
+                                        200,
+                                        286
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Conclusion",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 7
+                        },
+                        {
+                            "bbox": [
+                                125,
+                                288,
+                                175,
+                                302
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        125,
+                                        293,
+                                        131,
+                                        299
+                                    ],
+                                    "score": 1.0,
+                                    "content": "-",
+                                    "type": "text"
+                                },
+                                {
+                                    "bbox": [
+                                        141,
+                                        288,
+                                        175,
+                                        302
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Demo",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 8
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                303,
+                                294,
+                                319
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        303,
+                                        294,
+                                        319
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Duties for each group member.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 9
+                        }
+                    ],
+                    "index": 6
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        70,
+                        351,
+                        489,
+                        366
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                349,
+                                491,
+                                367
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        349,
+                                        491,
+                                        367
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Each group will have 10 minutes to present their work and 2-3 minutes Q & A session.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 10
+                        }
+                    ],
+                    "index": 10
+                }
+            ],
+            "page_idx": 2,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        502,
+                        731,
+                        541,
+                        743
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                499,
+                                729,
+                                543,
+                                746
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        499,
+                                        729,
+                                        543,
+                                        746
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Page | 3",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        70,
+                        731,
+                        193,
+                        742
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                730,
+                                194,
+                                744
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        730,
+                                        194,
+                                        744
+                                    ],
+                                    "score": 1.0,
+                                    "content": "XMUM.OAA - 100/2/8-V3.0",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "para_blocks": [
+                {
+                    "type": "title",
+                    "bbox": [
+                        71,
+                        118,
+                        129,
+                        132
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                115,
+                                130,
+                                135
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        115,
+                                        130,
+                                        135
+                                    ],
+                                    "score": 1.0,
+                                    "content": "F. Task(s)",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        69,
+                        158,
+                        542,
+                        193
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                157,
+                                543,
+                                176
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        157,
+                                        543,
+                                        176
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Prepare a10 minutes presentation about your project topic. Your presentation shall include but not",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 1
+                        },
+                        {
+                            "bbox": [
+                                69,
+                                177,
+                                124,
+                                195
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        177,
+                                        124,
+                                        195
+                                    ],
+                                    "score": 1.0,
+                                    "content": "limited to:",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 2
+                        }
+                    ],
+                    "index": 1.5,
+                    "bbox_fs": [
+                        69,
+                        157,
+                        543,
+                        195
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        124,
+                        208,
+                        349,
+                        318
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                142,
+                                208,
+                                295,
+                                223
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        142,
+                                        208,
+                                        295,
+                                        223
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Project title and team members",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 3
+                        },
+                        {
+                            "bbox": [
+                                142,
+                                223,
+                                349,
+                                239
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        142,
+                                        223,
+                                        349,
+                                        239
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Introduction about the aim of your project.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 4
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                240,
+                                205,
+                                256
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        240,
+                                        205,
+                                        256
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Input/output",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 5
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                255,
+                                309,
+                                271
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        255,
+                                        309,
+                                        271
+                                    ],
+                                    "score": 1.0,
+                                    "content": "The process or the method (Code)",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 6
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                271,
+                                200,
+                                286
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        271,
+                                        200,
+                                        286
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Conclusion",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 7
+                        },
+                        {
+                            "bbox": [
+                                125,
+                                288,
+                                175,
+                                302
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        125,
+                                        293,
+                                        131,
+                                        299
+                                    ],
+                                    "score": 1.0,
+                                    "content": "-",
+                                    "type": "text"
+                                },
+                                {
+                                    "bbox": [
+                                        141,
+                                        288,
+                                        175,
+                                        302
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Demo",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 8
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                303,
+                                294,
+                                319
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        303,
+                                        294,
+                                        319
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Duties for each group member.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 9
+                        }
+                    ],
+                    "index": 6,
+                    "bbox_fs": [
+                        125,
+                        208,
+                        349,
+                        319
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bbox": [
+                        70,
+                        351,
+                        489,
+                        366
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                69,
+                                349,
+                                491,
+                                367
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        69,
+                                        349,
+                                        491,
+                                        367
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Each group will have 10 minutes to present their work and 2-3 minutes Q & A session.",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 10
+                        }
+                    ],
+                    "index": 10,
+                    "bbox_fs": [
+                        69,
+                        349,
+                        491,
+                        367
+                    ]
+                }
+            ]
+        },
+        {
+            "preproc_blocks": [
+                {
+                    "type": "title",
+                    "bbox": [
+                        254,
+                        92,
+                        374,
+                        106
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                254,
+                                92,
+                                374,
+                                109
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        254,
+                                        92,
+                                        374,
+                                        109
+                                    ],
+                                    "score": 1.0,
+                                    "content": "MARKING RUBRICS",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        43,
+                        115,
+                        567,
+                        656
+                    ],
+                    "blocks": [
+                        {
+                            "type": "table_body",
+                            "bbox": [
+                                43,
+                                115,
+                                567,
+                                656
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        43,
+                                        115,
+                                        567,
+                                        656
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                43,
+                                                115,
+                                                567,
+                                                656
+                                            ],
+                                            "score": 0.983,
+                                            "html": "<table><tr><td rowspan=1 colspan=1>ComponentTitle</td><td rowspan=1 colspan=4>Group Project (presentation)</td><td rowspan=1 colspan=1>Percentage(%)</td><td rowspan=1 colspan=2>20</td></tr><tr><td rowspan=2 colspan=1>Criteria</td><td rowspan=1 colspan=5> Score and Descriptors</td><td rowspan=2 colspan=1>Weight(%)</td><td rowspan=2 colspan=1>Marks</td></tr><tr><td rowspan=1 colspan=1>Excellent(5)</td><td rowspan=1 colspan=1>Good(4)</td><td rowspan=1 colspan=1>Average(3)</td><td rowspan=1 colspan=1>NeedImprovement(2)</td><td rowspan=1 colspan=1>Poor(1)</td></tr><tr><td rowspan=1 colspan=1>PresentationContent</td><td rowspan=1 colspan=1>The presentation iswell organized withclear structure, goodlogic and solid content</td><td rowspan=1 colspan=1>The presentation is completedwithrequiredcontent.</td><td rowspan=1 colspan=1>The presentation iscompletedwith mostrequiredcontent.</td><td rowspan=1 colspan=1>The presentation is not wellorganized.</td><td rowspan=1 colspan=1>very poor presentationor no presentation is submitted.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>PresentationDesign</td><td rowspan=1 colspan=1>The design looks veryprofessional, withclear, high-qualitymages, neat alignmentand good use of colorsEverything matches well,making it easyand enjoyable to follow</td><td rowspan=1 colspan=1>The design isVnice,with helpfulVisuals and mostlymatching colorsand fonts. It&#x27;s easy to look at, though smallimprovements could make it even better.</td><td rowspan=1 colspan=1>The design is plain, with some usefulvisuals, but thecolors and fontsHon&#x27;t always matchlIt&#x27;s organized but not very eye-catching.</td><td rowspan=1 colspan=1>The design iscluttered and usesoutdated visuals.The colors andfonts areinconsistent,making it lookbusy and harder tdfollow.</td><td rowspan=1 colspan=1>The design ismessy, with low-quality visuals and randomcolors and fonts.It&#x27;s hard tofollow, andnothing feelsorganized orconnected.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>CommunicationSkills</td><td rowspan=1 colspan=1>Start, maintain andend a presentation naturally. Use appropriate eyecontact and bodylanguage. Take turnto talk with respect.</td><td rowspan=1 colspan=1>Start, maintain and end a presentation ina friendlymanner.Maintain good eye contact. Take turn totalk withrespect</td><td rowspan=1 colspan=1>Take the initiative to starta presentation.Appropriate eye contact.Take turn to talk</td><td rowspan=1 colspan=1> Take part in presentationwhen initiatedby others.Limited eyeContact.Interfere presentation</td><td rowspan=1 colspan=1>. Less interest to participatein presentationNo eyecontacts.Alwaysdisruptpresentation</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>OverallImpression</td><td rowspan=1 colspan=1>The presenterimpressively showsprofessionalism,confidence, andengagement,demonstratingexceptionalknowledge andexpertise in the subject</td><td rowspan=1 colspan=1> The presenterexudesprofessionalism, confidence,andcompetence,shows a goodlevel of knowledge andexpertise in thesubject</td><td rowspan=1 colspan=1>The presenterdisplays a basiclevel of professionalismwith less confidence, an average level ofknowledge in thesubject</td><td rowspan=1 colspan=1>The presenter&#x27;slackingprofessionalism, confidence,and engagement,along withlimitedknowledge inthe subject,</td><td rowspan=1 colspan=1>The presenter&#x27;sunprofessionalbehavior, lackof confidence,disengagement,andsignificantlack ofknowledgeand expertisein the subject.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=6>TOTAL</td><td rowspan=1 colspan=1>20</td><td rowspan=1 colspan=1></td></tr></table>",
+                                            "type": "table",
+                                            "image_path": "cfd5b94fe29efd78519a7f39c321765a2a404d849c54f80c80b97f1b8ee41bf2.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 2,
+                            "virtual_lines": [
+                                {
+                                    "bbox": [
+                                        43,
+                                        115,
+                                        567,
+                                        295.33333333333337
+                                    ],
+                                    "spans": [],
+                                    "index": 1
+                                },
+                                {
+                                    "bbox": [
+                                        43,
+                                        295.33333333333337,
+                                        567,
+                                        475.66666666666674
+                                    ],
+                                    "spans": [],
+                                    "index": 2
+                                },
+                                {
+                                    "bbox": [
+                                        43,
+                                        475.66666666666674,
+                                        567,
+                                        656.0000000000001
+                                    ],
+                                    "spans": [],
+                                    "index": 3
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table_footnote",
+                            "bbox": [
+                                73,
+                                660,
+                                486,
+                                674
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        658,
+                                        487,
+                                        676
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                658,
+                                                487,
+                                                676
+                                            ],
+                                            "score": 1.0,
+                                            "content": "Note to students: Please include the marking rubric when submitting your coursework",
+                                            "type": "text"
+                                        }
+                                    ],
+                                    "index": 4
+                                }
+                            ],
+                            "index": 4
+                        }
+                    ],
+                    "index": 3.0
+                }
+            ],
+            "page_idx": 3,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        70,
+                        731,
+                        193,
+                        742
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                729,
+                                194,
+                                744
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        729,
+                                        194,
+                                        744
+                                    ],
+                                    "score": 1.0,
+                                    "content": "XMUM.OAA - 100/2/8-V3.0",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        502,
+                        731,
+                        540,
+                        743
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                500,
+                                729,
+                                543,
+                                745
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        500,
+                                        729,
+                                        543,
+                                        745
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Page | 4",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        468,
+                        72,
+                        540,
+                        85
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                467,
+                                72,
+                                541,
+                                88
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        467,
+                                        72,
+                                        541,
+                                        88
+                                    ],
+                                    "score": 1.0,
+                                    "content": "APPENDIX 1",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "para_blocks": [
+                {
+                    "type": "title",
+                    "bbox": [
+                        254,
+                        92,
+                        374,
+                        106
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                254,
+                                92,
+                                374,
+                                109
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        254,
+                                        92,
+                                        374,
+                                        109
+                                    ],
+                                    "score": 1.0,
+                                    "content": "MARKING RUBRICS",
+                                    "type": "text"
+                                }
+                            ],
+                            "index": 0
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "table",
+                    "bbox": [
+                        43,
+                        115,
+                        567,
+                        656
+                    ],
+                    "blocks": [
+                        {
+                            "type": "table_body",
+                            "bbox": [
+                                43,
+                                115,
+                                567,
+                                656
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        43,
+                                        115,
+                                        567,
+                                        656
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                43,
+                                                115,
+                                                567,
+                                                656
+                                            ],
+                                            "score": 0.983,
+                                            "html": "<table><tr><td rowspan=1 colspan=1>ComponentTitle</td><td rowspan=1 colspan=4>Group Project (presentation)</td><td rowspan=1 colspan=1>Percentage(%)</td><td rowspan=1 colspan=2>20</td></tr><tr><td rowspan=2 colspan=1>Criteria</td><td rowspan=1 colspan=5> Score and Descriptors</td><td rowspan=2 colspan=1>Weight(%)</td><td rowspan=2 colspan=1>Marks</td></tr><tr><td rowspan=1 colspan=1>Excellent(5)</td><td rowspan=1 colspan=1>Good(4)</td><td rowspan=1 colspan=1>Average(3)</td><td rowspan=1 colspan=1>NeedImprovement(2)</td><td rowspan=1 colspan=1>Poor(1)</td></tr><tr><td rowspan=1 colspan=1>PresentationContent</td><td rowspan=1 colspan=1>The presentation iswell organized withclear structure, goodlogic and solid content</td><td rowspan=1 colspan=1>The presentation is completedwithrequiredcontent.</td><td rowspan=1 colspan=1>The presentation iscompletedwith mostrequiredcontent.</td><td rowspan=1 colspan=1>The presentation is not wellorganized.</td><td rowspan=1 colspan=1>very poor presentationor no presentation is submitted.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>PresentationDesign</td><td rowspan=1 colspan=1>The design looks veryprofessional, withclear, high-qualitymages, neat alignmentand good use of colorsEverything matches well,making it easyand enjoyable to follow</td><td rowspan=1 colspan=1>The design isVnice,with helpfulVisuals and mostlymatching colorsand fonts. It&#x27;s easy to look at, though smallimprovements could make it even better.</td><td rowspan=1 colspan=1>The design is plain, with some usefulvisuals, but thecolors and fontsHon&#x27;t always matchlIt&#x27;s organized but not very eye-catching.</td><td rowspan=1 colspan=1>The design iscluttered and usesoutdated visuals.The colors andfonts areinconsistent,making it lookbusy and harder tdfollow.</td><td rowspan=1 colspan=1>The design ismessy, with low-quality visuals and randomcolors and fonts.It&#x27;s hard tofollow, andnothing feelsorganized orconnected.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>CommunicationSkills</td><td rowspan=1 colspan=1>Start, maintain andend a presentation naturally. Use appropriate eyecontact and bodylanguage. Take turnto talk with respect.</td><td rowspan=1 colspan=1>Start, maintain and end a presentation ina friendlymanner.Maintain good eye contact. Take turn totalk withrespect</td><td rowspan=1 colspan=1>Take the initiative to starta presentation.Appropriate eye contact.Take turn to talk</td><td rowspan=1 colspan=1> Take part in presentationwhen initiatedby others.Limited eyeContact.Interfere presentation</td><td rowspan=1 colspan=1>. Less interest to participatein presentationNo eyecontacts.Alwaysdisruptpresentation</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>OverallImpression</td><td rowspan=1 colspan=1>The presenterimpressively showsprofessionalism,confidence, andengagement,demonstratingexceptionalknowledge andexpertise in the subject</td><td rowspan=1 colspan=1> The presenterexudesprofessionalism, confidence,andcompetence,shows a goodlevel of knowledge andexpertise in thesubject</td><td rowspan=1 colspan=1>The presenterdisplays a basiclevel of professionalismwith less confidence, an average level ofknowledge in thesubject</td><td rowspan=1 colspan=1>The presenter&#x27;slackingprofessionalism, confidence,and engagement,along withlimitedknowledge inthe subject,</td><td rowspan=1 colspan=1>The presenter&#x27;sunprofessionalbehavior, lackof confidence,disengagement,andsignificantlack ofknowledgeand expertisein the subject.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=6>TOTAL</td><td rowspan=1 colspan=1>20</td><td rowspan=1 colspan=1></td></tr></table>",
+                                            "type": "table",
+                                            "image_path": "cfd5b94fe29efd78519a7f39c321765a2a404d849c54f80c80b97f1b8ee41bf2.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 2,
+                            "virtual_lines": [
+                                {
+                                    "bbox": [
+                                        43,
+                                        115,
+                                        567,
+                                        295.33333333333337
+                                    ],
+                                    "spans": [],
+                                    "index": 1
+                                },
+                                {
+                                    "bbox": [
+                                        43,
+                                        295.33333333333337,
+                                        567,
+                                        475.66666666666674
+                                    ],
+                                    "spans": [],
+                                    "index": 2
+                                },
+                                {
+                                    "bbox": [
+                                        43,
+                                        475.66666666666674,
+                                        567,
+                                        656.0000000000001
+                                    ],
+                                    "spans": [],
+                                    "index": 3
+                                }
+                            ]
+                        },
+                        {
+                            "type": "table_footnote",
+                            "bbox": [
+                                73,
+                                660,
+                                486,
+                                674
+                            ],
+                            "group_id": 0,
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        658,
+                                        487,
+                                        676
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                658,
+                                                487,
+                                                676
+                                            ],
+                                            "score": 1.0,
+                                            "content": "Note to students: Please include the marking rubric when submitting your coursework",
+                                            "type": "text"
+                                        }
+                                    ],
+                                    "index": 4
+                                }
+                            ],
+                            "index": 4
+                        }
+                    ],
+                    "index": 3.0
+                }
+            ]
+        },
+        {
+            "preproc_blocks": [],
+            "page_idx": 4,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        502,
+                        731,
+                        540,
+                        743
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                500,
+                                728,
+                                543,
+                                746
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        500,
+                                        728,
+                                        543,
+                                        746
+                                    ],
+                                    "score": 1.0,
+                                    "content": "Page | 5",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "discarded",
+                    "bbox": [
+                        70,
+                        731,
+                        193,
+                        742
+                    ],
+                    "lines": [
+                        {
+                            "bbox": [
+                                70,
+                                730,
+                                194,
+                                744
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        730,
+                                        194,
+                                        744
+                                    ],
+                                    "score": 1.0,
+                                    "content": "XMUM.OAA - 100/2/8-V3.0",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "para_blocks": []
+        }
+    ],
+    "_backend": "pipeline",
+    "_version_name": "2.6.3"
+}

@@ -1,0 +1,429 @@
+[
+    {
+        "type": "text",
+        "text": "DESCRIPTION OF COURSEWORK ",
+        "text_level": 1,
+        "bbox": [
+            281,
+            119,
+            714,
+            142
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "table",
+        "img_path": "images/56e0d58d15875ee3ea3755d85038a0db2554c53928308e83d779338bf71c79e5.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Course Code</td><td rowspan=1 colspan=1>AIT102</td></tr><tr><td rowspan=1 colspan=1>Course Name</td><td rowspan=1 colspan=1> Python and TensorFlow Programming</td></tr><tr><td rowspan=1 colspan=1>Lecturer</td><td rowspan=1 colspan=1>Ruttab Maryam</td></tr><tr><td rowspan=1 colspan=1>Academic Session</td><td rowspan=1 colspan=1>2025/09</td></tr><tr><td rowspan=1 colspan=1>Assessment Title</td><td rowspan=1 colspan=1> Group project (Code)</td></tr></table>",
+        "bbox": [
+            114,
+            157,
+            883,
+            301
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "A. Introduction/ Situation/ Background Information ",
+        "text_level": 1,
+        "bbox": [
+            116,
+            330,
+            563,
+            348
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "This project evaluates the students’ ability to develop a complete python application and solve practical problems that illustrates understanding of core concepts from the course. It also will measure student’s teamwork and communication skills. ",
+        "bbox": [
+            114,
+            356,
+            883,
+            428
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "B. Course Learning Outcomes (CLO) covered ",
+        "text_level": 1,
+        "bbox": [
+            114,
+            460,
+            509,
+            479
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "At the end of this assessment, students are able to: ",
+        "bbox": [
+            116,
+            487,
+            513,
+            505
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "CLO 4: Solve practical problem through teamwork using good communication skills. ",
+        "bbox": [
+            119,
+            513,
+            795,
+            532
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "C. University Policy on Academic Misconduct ",
+        "text_level": 1,
+        "bbox": [
+            114,
+            565,
+            508,
+            584
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1. Academic misconduct is a serious offense in Xiamen University Malaysia. It can be defined as any of the following: ",
+        "bbox": [
+            117,
+            617,
+            883,
+            662
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "i. Plagiarism is submitting or presenting someone else’s work, words, ideas, data or information as your own intentionally or unintentionally. This includes incorporating published and unpublished material, whether in manuscript, printed or electronic form into your work without acknowledging the source (the person and the work).   \nii. Collusion is two or more people collaborating on a piece of work (in part or whole) which is intended to be wholly individual and passed it off as own individual work.   \niii. Cheating is an act of dishonesty or fraud in order to gain an unfair advantage in an assessment. This includes using or attempting to use, or assisting another to use materials ",
+        "bbox": [
+            140,
+            669,
+            887,
+            873
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 1 ",
+        "bbox": [
+            820,
+            922,
+            882,
+            938
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            921,
+            315,
+            936
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "discarded",
+        "text": "XIAMEN UNIVERSITY MALAYSIA OFFICE OF ACADEMIC AFFAIRS 厦門大學馬來西亞分校 Reference No. : XMUM.OAA - 100/2/8-V3.0Effective Date : 1 JUNE 2023 ",
+        "bbox": [
+            116,
+            29,
+            875,
+            92
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "that are prohibited or inappropriate, commissioning work from a third party, falsifying data, or breaching any examination rules. ",
+        "bbox": [
+            171,
+            89,
+            883,
+            135
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "2. All assessments submitted must be the student’s own work, without any materials generated by AI tools, including direct copying and pasting of text or paraphrasing. Any form of academic misconduct, including using prohibited materials or inappropriate assistance, is a serious offense and will result in a zero mark for the entire assessment or part of it. If there is more than one guilty party, such as in case of collusion, all parties involved will receive the same penalty. ",
+        "bbox": [
+            116,
+            167,
+            885,
+            319
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "D. Instruction to Students ",
+        "text_level": 1,
+        "bbox": [
+            116,
+            352,
+            341,
+            369
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "This final project is worth 30 marks. This project is a group project. Each group shall contain 5-6 students. It is not allowed to submit any project that you have submitted before to any other course. Group leader should submit a zip file named as “YourgroupID_FinalProject.zip” containing: ",
+        "bbox": [
+            114,
+            402,
+            887,
+            476
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "1. Project cover named as “YourgroupID_Cover.pdf” and contains your project title, your names, students’ id, declaration and marking rubrics.   \n2. A README.txt that acts as an instruction manual for your program. Explain how the program works and what are the requirements for the program from the user's perspective.   \n3. The entire project folder for your program, including all source code and assets (images, etc).   \n4. A main.py file that can be used to run your program properly (test it before you submit). Just put this file inside your project folder before you submit. If you have extra data file, the related files need to be added in the same folder. ",
+        "bbox": [
+            142,
+            481,
+            885,
+            710
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "Submit your final project on Moodle. The maximum file size on Moodle cannot exceed 20MB. If your work exceeds 20MB, you should put your files on OneDrive or XMU drive. and, the related link needs to be added to your project cover file. ",
+        "bbox": [
+            114,
+            717,
+            885,
+            789
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "The deadline is 18:00, 21,DEC,2025 ",
+        "text_level": 1,
+        "bbox": [
+            117,
+            821,
+            403,
+            839
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "Overdue penalty will be given to the project that is submitted after the deadline. ",
+        "bbox": [
+            112,
+            848,
+            738,
+            867
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 2 ",
+        "bbox": [
+            820,
+            922,
+            883,
+            938
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            921,
+            316,
+            938
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "E. Evaluation Breakdown ",
+        "text_level": 1,
+        "bbox": [
+            114,
+            90,
+            341,
+            108
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "table",
+        "img_path": "images/2e200d30c59ef87edb76778aadedc31c92b293d9a5b9f7eed81950bca89412dc.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>No.</td><td rowspan=1 colspan=1>Component Title</td><td rowspan=1 colspan=1>Percentage(%)</td></tr><tr><td rowspan=1 colspan=1>1.</td><td rowspan=1 colspan=1>Program Functionality</td><td rowspan=1 colspan=1>10</td></tr><tr><td rowspan=1 colspan=1>2.</td><td rowspan=1 colspan=1>Level of Effort</td><td rowspan=1 colspan=1>10</td></tr><tr><td rowspan=1 colspan=1>3.</td><td rowspan=1 colspan=1>Code Quality</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1>4.</td><td rowspan=1 colspan=1>Team work</td><td rowspan=1 colspan=1>5</td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>TOTAL</td><td rowspan=1 colspan=1>30</td></tr></table>",
+        "bbox": [
+            114,
+            141,
+            882,
+            296
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "F. Task(s) ",
+        "text_level": 1,
+        "bbox": [
+            114,
+            324,
+            210,
+            343
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "You are to design and write a Python application. Here are some ideas of projects https://www.upgrad.com/blog/artificial-intelligence-projects-in-python/ https://careerkarma.com/blog/python-projects-beginners/ ",
+        "bbox": [
+            114,
+            376,
+            758,
+            395
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            114,
+            412,
+            635,
+            455
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "Note that some Python code is provided in these. You may use some of this code but you must use comments to provide the URL where you found the code you modified. ",
+        "bbox": [
+            116,
+            472,
+            883,
+            518
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "1. Your program needs to have some interaction with the user, that is, it prompts and accept input from the user and has an outcome that is shown to the user. TensorFlow-related are preferred.   \n2. Provide a purpose to the user. Your project can be for a practical purpose or for fun. Expand your knowledge of Python and explore new ideas.   \n3. Use Python control constructs such as while, for, if, else.   \n4. Use variables as needed to retain information and to alter data as needed.   \n5. Make use of strings, list, dictionary and/or other collections of data.   \n6. Define functions and call functions as needed.   \n7. Clearly identify through comments the URL of where ideas and code were found.   \n8. If some portion of your Python code is from another web site or source, you must modify so that it is original for your program. ",
+        "bbox": [
+            142,
+            534,
+            890,
+            844
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 3 ",
+        "bbox": [
+            820,
+            922,
+            883,
+            938
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            921,
+            315,
+            936
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "MARKING RUBRICS ",
+        "text_level": 1,
+        "bbox": [
+            415,
+            116,
+            611,
+            133
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "table",
+        "img_path": "images/2d7c90338a11b04f34c764ca776aaa1ace5477a816506a947ad5f31bd6a6390f.jpg",
+        "table_caption": [],
+        "table_footnote": [
+            "Note to students: Please include the marking rubric when submitting your coursework "
+        ],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>ComponentTitle</td><td rowspan=1 colspan=6>Group Project (Code)</td><td rowspan=1 colspan=1>Percentage(%)</td><td rowspan=1 colspan=2>30</td></tr><tr><td rowspan=2 colspan=1>Criteria</td><td rowspan=1 colspan=7> Score and Descriptors</td><td rowspan=2 colspan=1>Weight(%)</td><td rowspan=2 colspan=1>Marks</td></tr><tr><td rowspan=1 colspan=1> Excellent(10)</td><td rowspan=1 colspan=1>Good(8-9)</td><td rowspan=1 colspan=3>Average(6-7)</td><td rowspan=1 colspan=1>Need Improvement(3-5)</td><td rowspan=1 colspan=1>Poor(1-2)</td></tr><tr><td rowspan=1 colspan=1>ProgramFunctionality</td><td rowspan=1 colspan=1>The program meetsthe listed specifications and does what it wasdesigned to do withno issues.</td><td rowspan=1 colspan=1> The programmeets thelisted specification s and worksmost of thetime with some issues.</td><td rowspan=1 colspan=3> The programmeets thelisted main specificationsand worksmost of thetime with some issues.</td><td rowspan=1 colspan=1> The programdoes not meet thelisted specificationsorworks intermittently.</td><td rowspan=1 colspan=1> The programdoes not work at all</td><td rowspan=1 colspan=1>10</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Level ofEffort</td><td rowspan=1 colspan=1>The program is verychallenging andambitious andTensorFlow programming is used.</td><td rowspan=1 colspan=1>The programismoderatelyambitious and takessome effort.</td><td rowspan=1 colspan=3> The program is a sense of ambitious and takes someeffort.</td><td rowspan=1 colspan=1> The programis simple but iswelldesigned.</td><td rowspan=1 colspan=1> The program is too simpleand is poorlydesigned</td><td rowspan=1 colspan=1>10</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>Criteria</td><td rowspan=1 colspan=1>Excellent(5)</td><td rowspan=1 colspan=1>Good（4）</td><td rowspan=1 colspan=3> Average(3)</td><td rowspan=1 colspan=1>Need Improvement(2)</td><td rowspan=1 colspan=1>Poor(1)</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>CodeQuality</td><td rowspan=1 colspan=1>The code is wellorganized with perfect style (e.g., thecode is non-repetitive, methods and variables are named appropriately,control and logical structures are usedappropriately, etc.).</td><td rowspan=1 colspan=1>The code iswellorganizedand has minor styleissue.</td><td rowspan=1 colspan=3>The code iscompletelyorganized andhas minorstyle issue.</td><td rowspan=1 colspan=1>The code ispoorlyorganizedor has majorstyleissue</td><td rowspan=1 colspan=1>The code is a total mess.</td><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=2 colspan=1>Team work</td><td rowspan=2 colspan=1> Show clear evidence to assume alternate roles as a group leader and a groupmemberdemonstrated inpractice</td><td rowspan=2 colspan=1>Able todemonstrate in practice theability toassume alternate roles as a group leader and a group member to achieve the same goal</td><td rowspan=2 colspan=3>Able todemonstrate in practice theability toassume alternate roles as a group leader andmembers with someeffect(s) and require minorimprovements.</td><td rowspan=2 colspan=1> Attempt todemonstrate inpractice the ability to alternate roles as a groupleader andgroupmembers but with limitedeffect andrequireimprovements</td><td rowspan=2 colspan=1>No clearevidence ofability toassumealternate roles as a groupleader andgroupmembersdemonstrated in practice</td><td rowspan=2 colspan=1>5</td><td rowspan=2 colspan=1></td></tr><tr><td rowspan=1 colspan=1>ffect(s):</td></tr><tr><td rowspan=1 colspan=8>TOTAL</td><td rowspan=1 colspan=1>30</td><td rowspan=1 colspan=1></td></tr></table>",
+        "bbox": [
+            68,
+            145,
+            926,
+            868
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "Page | 4 ",
+        "bbox": [
+            820,
+            922,
+            882,
+            938
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "XMUM.OAA - 100/2/8-V3.0",
+        "bbox": [
+            114,
+            922,
+            315,
+            936
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "discarded",
+        "text": "APPENDIX 1 ",
+        "bbox": [
+            764,
+            90,
+            882,
+            107
+        ],
+        "page_idx": 3
+    }
+]
