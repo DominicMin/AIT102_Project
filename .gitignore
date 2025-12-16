@@ -1,2 +1,3 @@
 src/.venv/
 src/style_transfer/__pycache__
+*.zip

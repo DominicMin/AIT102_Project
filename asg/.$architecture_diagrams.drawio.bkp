@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="Page-1" name="System Architecture">
-        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="444" dy="845" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="200" width="30" height="60" as="geometry"/>
+                    <mxGeometry x="80" y="200" width="30" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="4" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -15,13 +15,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="4" value="Frontend (HTML5/CSS3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="180" width="160" height="100" as="geometry"/>
+                    <mxGeometry x="180" y="180" width="160" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="Upload Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="4" vertex="1">
-                    <mxGeometry x="20" y="10" width="120" height="20" as="geometry"/>
+                    <mxGeometry x="20" y="30" width="120" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="Style Selector" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="4" vertex="1">
-                    <mxGeometry x="20" y="70" width="120" height="20" as="geometry"/>
+                    <mxGeometry x="20" y="60" width="120" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="Submit Request" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4" target="8" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -32,7 +32,7 @@
                 <mxCell id="8" value="Backend (Python/Flask)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
                     <mxGeometry x="420" y="160" width="200" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="Backend (Flask Server)" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" parent="8" vertex="1">
+                <mxCell id="9" value="Flask Server" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" parent="8" vertex="1">
                     <mxGeometry x="20" y="20" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Image Preprocessing" style="rounded=0;whiteSpace=wrap;html=1;" parent="8" vertex="1">
@@ -41,14 +41,14 @@
                 <mxCell id="11" value="TensorFlow Model" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="8" vertex="1">
                     <mxGeometry x="20" y="90" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="Return JSON/Image" style="endArrow=classic;html=1;exitX=-0.003;exitY=0.678;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;exitPerimeter=0;" parent="1" source="8" target="4" edge="1">
+                <mxCell id="12" value="Return JSON/Image" style="endArrow=classic;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;" parent="1" source="8" target="4" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="400" y="300" as="sourcePoint"/>
                         <mxPoint x="350" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="13" value="Model Files (.h5/ckpt)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="215" width="80" height="100" as="geometry"/>
+                    <mxGeometry x="680" y="200" width="80" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" value="Load" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="13" target="11" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
@@ -89,22 +89,22 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="StyleImg" value="Style Image (Fixed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
-                    <mxGeometry x="770" y="300" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="660" y="280" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="Arrow4" value="Compare Gram Matrix" style="endArrow=classic;startArrow=classic;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="LossNet" target="StyleImg" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="StyleLoss" value="Style Loss" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF0000;" parent="1" vertex="1">
-                    <mxGeometry x="670" y="340" width="60" height="30" as="geometry"/>
+                    <mxGeometry x="610" y="320" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="ContentImgRef" value="Content Image" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-                    <mxGeometry x="200" y="300" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="260" y="280" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="Arrow5" value="Compare Features" style="endArrow=classic;startArrow=classic;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="ContentImgRef" target="LossNet" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="ContentLoss" value="Content Loss" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF0000;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="340" width="60" height="30" as="geometry"/>
+                    <mxGeometry x="390" y="320" width="60" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="ArrowBack" value="Update Weights (Backprop)" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;dashed=1;strokeColor=#FF0000;" parent="1" source="LossNet" target="Step2" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
@@ -128,7 +128,7 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="InfOutput" value="Stylized Result" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
-                    <mxGeometry x="560" y="520" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="480" y="520" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="ArrowInf2" value="Fast Inference (&lt;100ms)" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="InfModel" target="InfOutput" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
