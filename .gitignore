@@ -1,5 +1,6 @@
 src/.venv/
 src/style_transfer/__pycache__
 *.zip
-src/data/val2017/
-src/.venv_wsl
+src/data/val2017
+src/checkpoints
+.ipynb_checkpoints
