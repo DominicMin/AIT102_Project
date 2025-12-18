@@ -27,8 +27,8 @@ def main():
     trainer = StyleTransferTrainer(
         style_image_path=style_image_path,
         content_dir=content_dir,
-        epochs=2,
-        batch_size=4, # RTX 4060 has 8GB VRAM, batch size 4 is safe for 256x256
+        epochs=40,
+        batch_size=16, # RTX 4060 has 8GB VRAM, batch size 4 is safe for 256x256
         check_point_dir=checkpoint_dir
     )
 
