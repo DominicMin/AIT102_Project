@@ -23,12 +23,14 @@ def main():
     print("GPU Available: ", tf.config.list_physical_devices('GPU'))
 
     # Initialize Trainer
-    # Epochs=2 is enough for a good PoC on ~5000 images
+    # V100 32GB Optimization:
+    # - Batch Size: 16 (Safe for 32GB VRAM, 4x larger than local)
+    # - Epochs: 40 (To match Johnson et al.'s total iterations on our smaller 5k dataset)
     trainer = StyleTransferTrainer(
         style_image_path=style_image_path,
         content_dir=content_dir,
-        epochs=2,
-        batch_size=4, # RTX 4060 has 8GB VRAM, batch size 4 is safe for 256x256
+        epochs=40,
+        batch_size=16, 
         check_point_dir=checkpoint_dir
     )
 
