@@ -44,8 +44,8 @@ def fine_tune():
     # Let's monkey-patch the module variable for this session
     import style_transfer.train as train_module
     print(f"Old Style Weight: {train_module.STYLE_WEIGHT}")
-    train_module.STYLE_WEIGHT = 1e-4 # Reduce by 100x
-    train_module.TOTAL_VARIATION_WEIGHT = 500 # Increase smoothnes (was 30)
+    train_module.STYLE_WEIGHT = 1e-3 # Reduce by 10x (Balanced)
+    train_module.TOTAL_VARIATION_WEIGHT = 100 # Moderate smoothness
     print(f"New Style Weight: {train_module.STYLE_WEIGHT}")
     print(f"New TV Weight: {train_module.TOTAL_VARIATION_WEIGHT}")
 

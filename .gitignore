@@ -4,3 +4,4 @@ src/style_transfer/__pycache__
 src/data/val2017
 src/checkpoints
 .ipynb_checkpoints
+src/.venv_wsl

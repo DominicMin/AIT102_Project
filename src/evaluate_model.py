@@ -15,7 +15,9 @@ def main():
     # Manual Checkpoint Override (Optional)
     # Set this to a specific path like 'checkpoints/ckpt-40' to load that specific one.
     # Set to None to use the latest from the manager.
-    manual_checkpoint_path = 'checkpoints/ckpt-39' 
+    # After fine-tuning, the new model will be in 'checkpoints_finetuned/ckpt-1'
+    checkpoint_dir = 'checkpoints_finetuned' 
+    manual_checkpoint_path = 'checkpoints_finetuned/ckpt-1' 
 
     # 1. Build the Model (Must match training architecture)
     # We use (None, None, 3) to allow inference on images of any size
