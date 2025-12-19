@@ -30,7 +30,7 @@ def main():
         style_image_path=style_image_path,
         content_dir=content_dir,
         epochs=40,
-        batch_size=16, 
+        batch_size=32, 
         check_point_dir=checkpoint_dir
     )
 

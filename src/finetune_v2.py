@@ -115,7 +115,7 @@ def main():
         style_image_path='style.jpg',
         content_dir=os.path.join('data', 'val2017'),
         epochs=1,
-        batch_size=4,
+        batch_size=32,
         check_point_dir=fine_tune_dir
     )
     

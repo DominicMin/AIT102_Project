@@ -40,7 +40,18 @@ class StyleTransferTrainer:
         self.style_image_path = style_image_path
         self.content_dir = content_dir
         self.epochs = epochs
+        
+        # Dual GPU Strategy
+        self.strategy = tf.distribute.MirroredStrategy()
+        print(f"Number of devices: {self.strategy.num_replicas_in_sync}")
+        
+        # Adjust batch size for global context
         self.batch_size = batch_size
+        self.global_batch_size = batch_size # Input is treated as 'global' or 'per_replica'?
+        # Standard convention: input batch_size is usually global batch size in Keras fit,
+        # but in custom loops, we often specify global and let it split.
+        # Let's assume the user passes the GLOBAL batch size (e.g. 32).
+        
         self.check_point_dir = check_point_dir
         
         # TensorBoard Logger
@@ -48,16 +59,17 @@ class StyleTransferTrainer:
         self.train_log_dir = os.path.join(log_dir, current_time)
         self.summary_writer = tf.summary.create_file_writer(self.train_log_dir)
         
-        # Initialize Model
-        self.transformer = make_style_transfer_network()
-        self.loss_model = get_vgg_loss_model()
-        
-        # Optimizer
-        self.optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3, beta_1=0.5)
-        
-        # Checkpoint
-        self.ckpt = tf.train.Checkpoint(transformer=self.transformer, optimizer=self.optimizer)
-        self.ckpt_manager = tf.train.CheckpointManager(self.ckpt, self.check_point_dir, max_to_keep=5)
+        with self.strategy.scope():
+            # Initialize Model inside strategy scope
+            self.transformer = make_style_transfer_network()
+            self.loss_model = get_vgg_loss_model()
+            
+            # Optimizer
+            self.optimizer = tf.keras.optimizers.Adam(learning_rate=1e-3, beta_1=0.5)
+            
+            # Checkpoint
+            self.ckpt = tf.train.Checkpoint(transformer=self.transformer, optimizer=self.optimizer)
+            self.ckpt_manager = tf.train.CheckpointManager(self.ckpt, self.check_point_dir, max_to_keep=5)
 
     def load_dataset(self):
         """Loads images from content_dir."""
@@ -76,28 +88,22 @@ class StyleTransferTrainer:
             img = img * 255.0 # Scale to 0-255
             return img
 
-        ds = tf.data.Dataset.from_tensor_slices(image_files)
-        ds = ds.map(process_path, num_parallel_calls=tf.data.AUTOTUNE)
-        ds = ds.shuffle(buffer_size=1000).batch(self.batch_size).prefetch(tf.data.AUTOTUNE)
-        return ds
+        dataset = tf.data.Dataset.from_tensor_slices(image_files)
+        dataset = dataset.map(process_path, num_parallel_calls=tf.data.AUTOTUNE)
+        # Batch size is GLOBAL batch size here
+        dataset = dataset.shuffle(buffer_size=1000).batch(self.batch_size).prefetch(tf.data.AUTOTUNE)
+        return dataset
 
     def compute_loss(self, generated_images, content_images, style_targets):
-        # Preprocess for VGG (expects 0-255 BGR centered)
-        # Note: generated_images and content_images are 0-255 RGB
-        
-        # VGG Inputs
+        # Preprocess
         vgg_gen = tf.keras.applications.vgg19.preprocess_input(generated_images)
-        vgg_content = tf.keras.applications.vgg19.preprocess_input(content_images) # Content targets come from original image
+        vgg_content = tf.keras.applications.vgg19.preprocess_input(content_images) 
         
-        # Forward pass through VGG
         gen_outputs = self.loss_model(vgg_gen)
-        # Content pass (we only need content layers)
         content_outputs = self.loss_model(vgg_content)
         
-        # Split outputs
         gen_style_outputs = gen_outputs[:len(STYLE_LAYERS)]
         gen_content_outputs = gen_outputs[len(STYLE_LAYERS):]
-        
         true_content_outputs = content_outputs[len(STYLE_LAYERS):]
         
         # Content Loss
@@ -108,15 +114,22 @@ class StyleTransferTrainer:
         style_loss = tf.add_n([tf.reduce_mean((gram_matrix(gen_style_outputs[i]) - style_targets[i])**2)
                                for i in range(len(STYLE_LAYERS))])
         
-        # Total Variation Loss (smoothness)
-        # tf.image.total_variation returns sum of abs differences
+        # TV Loss
         tv_loss = tf.reduce_mean(tf.image.total_variation(generated_images))
         
         total_loss = (CONTENT_WEIGHT * content_loss) + (STYLE_WEIGHT * style_loss) + (TOTAL_VARIATION_WEIGHT * tv_loss)
+        
+        # Scale loss by 1/global_batch_size is usually handled by reduce_mean if summing?
+        # tf.reduce_mean computes mean per batch. 
+        # In multi-gpu, standard practice is sum per replica, then divide by global batch size.
+        # But here we used reduce_mean per replica. 
+        # The gradients will be averaged across replicas by default.
+        # So per-replica mean is fine.
+        
         return total_loss, content_loss, style_loss
 
-    @tf.function
     def train_step(self, content_images, style_targets):
+        # This function runs PER REPLICA
         with tf.GradientTape() as tape:
             generated_images = self.transformer(content_images)
             loss, c_loss, s_loss = self.compute_loss(generated_images, content_images, style_targets)
@@ -128,53 +141,90 @@ class StyleTransferTrainer:
     def train(self):
         # Load Style Target
         print("Loading style image...")
-        style_img = load_img(self.style_image_path) # Shape (1, H, W, 3), 0-255 (load_img returns 0-1? check utils)
-        # Check utils.py: load_img returns 0-1 float32 tensor
+        style_img = load_img(self.style_image_path)
         style_img = style_img * 255.0 # Scale to 0-255
         
-        # Precompute Style Targets (Gram Matrices)
+        # Precompute Style Targets (Gram Matrices) - Can be done on CPU or single GPU
         vgg_style = tf.keras.applications.vgg19.preprocess_input(style_img)
-        style_outputs = self.loss_model(vgg_style)
-        style_targets = [gram_matrix(style_outputs[i]) for i in range(len(STYLE_LAYERS))]
+        # Using the strategy scope model just in case, though for inference it matters less
+        # Actually better to compute this once and pass it in as constant tensors
+        with self.strategy.scope():
+             style_outputs = self.loss_model(vgg_style)
+             style_targets = [gram_matrix(style_outputs[i]) for i in range(len(STYLE_LAYERS))]
+             # Ensure targets are constant tensors available to all replicas
+             style_targets = [tf.constant(t) for t in style_targets]
         
         # Dataset
         dataset = self.load_dataset()
+        # Distribute dataset
+        dist_dataset = self.strategy.experimental_distribute_dataset(dataset)
         
-        print(f"Starting training for {self.epochs} epochs...")
+        print(f"Starting distributed training for {self.epochs} epochs with global batch size {self.batch_size}...")
+        
+        # Define distributed step
+        @tf.function
+        def distributed_train_step(content_batch, style_targets_arg):
+            per_replica_losses = self.strategy.run(self.train_step, args=(content_batch, style_targets_arg))
+            # Reduce for logging
+            return self.strategy.reduce(tf.distribute.ReduceOp.MEAN, per_replica_losses, axis=None)
+
         for epoch in range(self.epochs):
             print(f"Epoch {epoch+1}/{self.epochs}")
-            prog_bar = tqdm(dataset)
             
-            for step, content_batch in enumerate(prog_bar):
-                loss, c_loss, s_loss = self.train_step(content_batch, style_targets)
-                prog_bar.set_description(f"Loss: {loss.numpy():.2f} (C: {c_loss.numpy():.2f}, S: {s_loss.numpy():.2f})")
+            # Use simple loop instead of tqdm on dist_dataset directly if possible, or manual clear
+            # tqdm with dist_dataset can be tricky because length might be unknown or infinite if repeated
+            
+            step = 0
+            for content_batch in dist_dataset:
+                # Returns (total_loss, c_loss, s_loss) tuple of reduced values? 
+                # Strategy.run returns a tuple of PerReplica values if train_step returns a tuple.
+                # reduce needs to be called on each element.
                 
+                # Let's adjust distributed_train_step to return list of reduced values
+                
+                # Re-define inside loop or class to handle the tuple return:
+                # Actually, let's just do it cleanly:
+                
+                per_replica_results = self.strategy.run(self.train_step, args=(content_batch, style_targets))
+                # per_replica_results is a tuple of (loss, c_loss, s_loss), each is PerReplica
+                
+                loss = self.strategy.reduce(tf.distribute.ReduceOp.MEAN, per_replica_results[0], axis=None)
+                c_loss = self.strategy.reduce(tf.distribute.ReduceOp.MEAN, per_replica_results[1], axis=None)
+                s_loss = self.strategy.reduce(tf.distribute.ReduceOp.MEAN, per_replica_results[2], axis=None)
+                
+                if step % 20 == 0:
+                     print(f"Step {step}: Loss: {loss:.2f} (C: {c_loss:.2f}, S: {s_loss:.2f})")
+
                 # TensorBoard Logging
                 with self.summary_writer.as_default():
-                    tf.summary.scalar('total_loss', loss, step=epoch*len(dataset) + step)
-                    tf.summary.scalar('content_loss', c_loss, step=epoch*len(dataset) + step)
-                    tf.summary.scalar('style_loss', s_loss, step=epoch*len(dataset) + step)
+                    tf.summary.scalar('total_loss', loss, step=epoch*1000 + step) # approx step
+                    tf.summary.scalar('content_loss', c_loss, step=epoch*1000 + step)
+                    tf.summary.scalar('style_loss', s_loss, step=epoch*1000 + step)
                     
-                    # Log images every 100 steps
                     if step % 100 == 0:
-                        # Log the first image in batch
-                        example_content = content_batch[0]
+                        # Log images (Just take one replica's input)
+                        # content_batch is PerReplica.
+                        # We can grab local values.
+                        if hasattr(content_batch, 'values'):
+                            local_content = content_batch.values[0]
+                        else:
+                            local_content = content_batch
+                            
+                        example_content = local_content[0]
+                        # Run inference on one image
+                        # Must be inside scope or just run transformer directly if weights are synced (they are)
                         example_generated = self.transformer(tf.expand_dims(example_content, 0))[0]
                         
-                        # Images are 0-255, convert to 0-1 for tensorboard display if float
-                        # Or keep as uint8. Let's cast to uint8
-                        tf.summary.image("Training/Input", tf.cast(content_batch[:1], tf.uint8), step=epoch*len(dataset) + step)
-                        tf.summary.image("Training/Output", tf.cast(tf.expand_dims(example_generated, 0), tf.uint8), step=epoch*len(dataset) + step)
+                        tf.summary.image("Training/Input", tf.cast(tf.expand_dims(example_content, 0), tf.uint8), step=epoch*1000 + step)
+                        tf.summary.image("Training/Output", tf.cast(tf.expand_dims(example_generated, 0), tf.uint8), step=epoch*1000 + step)
+
+                step += 1
                 
             # Save checkpoint each epoch
             ckpt_save_path = self.ckpt_manager.save()
             print(f"Saved checkpoint for epoch {epoch+1} at {ckpt_save_path}")
             
-            # Optional: Save a sample result
-            # Can add visualization code here
-            
         print("Training complete.")
 
 if __name__ == "__main__":
-    # Example usage (will be called from separate script usually)
     pass

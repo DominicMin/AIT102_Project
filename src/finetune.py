@@ -15,7 +15,7 @@ def fine_tune():
         style_image_path=style_image_path,
         content_dir=content_dir,
         epochs=1,           # Only 1 epoch needed to fix weights
-        batch_size=4,       # Local RTX 4060 is fine for this
+        batch_size=32,       # Dual GPU optimization
         check_point_dir=fine_tune_dir
     )
 

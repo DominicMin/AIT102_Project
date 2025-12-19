@@ -5,3 +5,7 @@ src/data/val2017
 src/checkpoints
 .ipynb_checkpoints
 src/.venv_wsl
+src/checkpoints_v2_server
+*.run
+src/logs
+src/logs_v2
