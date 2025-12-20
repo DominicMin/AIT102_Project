@@ -11,4 +11,5 @@ src/logs
 src/logs_v2
 src/__pycache__
 src/models/checkpoints
+.vscode/
 *.mp4
