@@ -7,10 +7,8 @@ import os
 import sys
 import numpy as np
 
-# Ensure local imports work
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from src.style_transfer.model import make_style_transfer_network
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "style_transfer"))
+from model import make_style_transfer_network
 
 def process_video(model_path, input_video, output_video, width=None):
     print("Initializing...")

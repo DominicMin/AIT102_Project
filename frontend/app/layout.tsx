@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'AI Style Transfer - Real-time Art',
   description: 'Transform your images with AI-powered style transfer',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export default function RootLayout({
