@@ -16,15 +16,28 @@ def run_local_demo_onnx(model_path, camera_id=0, width=640, window_name="AIT102 
     available_providers = ort.get_available_providers()
     print(f"Available Providers: {available_providers}")
     
-    # Prioritize DirectML for easy Windows setup, then CUDA, then CPU
+    # Prioritize DirectML (Windows GPU), then CUDA, then CPU
     providers = []
-    if 'DirectMLExecutionProvider' in available_providers:
+    
+    # Check for DirectML (Name can be 'DmlExecutionProvider' or 'DirectMLExecutionProvider')
+    if 'DmlExecutionProvider' in available_providers:
+        providers.append('DmlExecutionProvider')
+    elif 'DirectMLExecutionProvider' in available_providers:
         providers.append('DirectMLExecutionProvider')
+
     if 'CUDAExecutionProvider' in available_providers:
         providers.append('CUDAExecutionProvider')
     providers.append('CPUExecutionProvider')
     
     print(f"Using Providers: {providers}")
+    
+    if 'DmlExecutionProvider' not in providers and 'DirectMLExecutionProvider' not in providers:
+        print("\n[WARNING] DirectML is NOT active! Running on CPU/CUDA.")
+        print("To fix for Windows AMD/Intel/NVIDIA GPUs:")
+        print("    pip install onnxruntime-directml")
+    else:
+        print("\n[SUCCESS] DirectML Acceleration Enabled! (GPU)")
+
     print("=========================================")
 
     # 1. Load Model

@@ -62,6 +62,23 @@ Python 依赖库 (安装命令见下文)：
      ```
      访问 UI：http://localhost:3000
 
+   - [4] 启动实时视频演示 (Real-time Video Demo / God Mode)
+     运行本地 ONNX 推理引擎，支持 DirectML (GPU) 加速。
+     已在 RTX 3090 / 4060 上验证 FP16 优化性能。
+     
+     使用方法：
+     ```bash
+     python src/local_demo_onnx.py "src/models/exported/your_model.onnx" --width 640
+     ```
+
+     性能说明：
+     - FP32 模型 (默认): 约 5 FPS @ 1280p
+     - FP16 模型 (优化后): 约 20 FPS @ 1280p (推荐)
+     如何将模型转为 FP16:
+     ```bash
+     python src/optimize_onnx.py "path/to/model.onnx"
+     ```
+
 4. 目录结构 (File Structure)
 -----------------
 .

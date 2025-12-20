@@ -57,6 +57,19 @@ Step 3: Select an Option
      $ npm run dev  # Start Development Server
      Access the UI at: http://localhost:3000
 
+   - Option [4]: Real-time Video Demo (God Mode Preview)
+     Runs the local ONNX inference engine with DirectML (GPU) acceleration.
+     Verified on RTX 3090 / 4060 with FP16 optimization.
+     
+     Usage:
+     $ python src/local_demo_onnx.py "src/models/exported/your_model.onnx" --width 640
+
+     Performance Note:
+     - FP32 Model: ~5 FPS @ 1280p
+     - FP16 Model: ~20 FPS @ 1280p (Recommended)
+     To optimize a model to FP16:
+     $ python src/optimize_onnx.py "path/to/model.onnx"
+
 4. FILE STRUCTURE
 -----------------
 /src
