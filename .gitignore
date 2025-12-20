@@ -13,3 +13,5 @@ src/__pycache__
 src/models/checkpoints
 .vscode/
 *.mp4
+frontend/node_modules
+frontend/.next

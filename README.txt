@@ -50,6 +50,13 @@ Step 3: Select an Option
      This will retrain the style transfer models using the images in 'src/data/'.
      Note: This process is computationally intensive.
 
+   - Option [3]: Starts Frontend (Next.js)
+     Open a new terminal in the 'frontend' directory:
+     $ cd frontend
+     $ npm install  # Install dependencies (First time only)
+     $ npm run dev  # Start Development Server
+     Access the UI at: http://localhost:3000
+
 4. FILE STRUCTURE
 -----------------
 /src
