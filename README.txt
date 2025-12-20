@@ -38,54 +38,55 @@ Step 1: Environment Setup
    $ conda activate ait
    $ pip install -r src/requirements.txt
 
-Step 2: Run the Main Program
-   Execute the unified launcher from the project root:
+Step 2: Unified Launcher (Recommended)
+   Run the main menu from the project root:
    $ python main.py
 
-Step 3: Select an Option
-   - Option [1]: Starts the Demo Server (Backend).
-     Once running, access the web interface at: http://localhost:8000
-   
-   - Option [2]: Starts Model Training.
-     This will retrain the style transfer models using the images in 'src/data/'.
-     Note: This process is computationally intensive.
+   > Menu Options:
+   > [1] Start Full Stack Demo (One-Click)
+   >     - Launches Backend (Port 8000) and Frontend (Port 3000) in separate windows.
+   >     - Best for presentations.
+   >
+   > [2] Train New Style (Manager Mode)
+   >     - Prompts for style name (e.g., 'monet').
+   >     - Requires Dual RTX 3090 GPUs (48GB VRAM) for stability.
+   >     - Automatically manages training, checkpoints, and export.
 
-   - Option [3]: Starts Frontend (Next.js)
-     Open a new terminal in the 'frontend' directory:
-     $ cd frontend
-     $ npm install  # Install dependencies (First time only)
-     $ npm run dev  # Start Development Server
-     Access the UI at: http://localhost:3000
+4. CORE SCRIPTS CLI
+-------------------
+You can also run individual components manually:
 
-   - Option [4]: Real-time Video Demo (God Mode Preview)
-     Runs the local ONNX inference engine with DirectML (GPU) acceleration.
-     Verified on RTX 3090 / 4060 with FP16 optimization.
-     
-     Usage:
-     $ python src/local_demo_onnx.py "src/models/exported/your_model.onnx" --width 640
+[A] Backend Server
+    $ python src/server.py
+    # Starts FastAPI server (TF + ONNX God Mode) on Port 8000.
 
-     Performance Note:
-     - FP32 Model: ~5 FPS @ 1280p
-     - FP16 Model: ~20 FPS @ 1280p (Recommended)
-     To optimize a model to FP16:
-     $ python src/optimize_onnx.py "path/to/model.onnx"
+[B] Training Manager
+    $ python src/train_manager.py --style <style_name>
+    # Example: python src/train_manager.py --style picasso
+    # runs the full training pipeline using DistributedStrategy.
 
-4. FILE STRUCTURE
+[C] ONNX Converter
+    $ python src/export_onnx.py --model_dir src/models/exported --fp16
+    # Converts trained .h5 models to .onnx and optimizes for FP16.
+    # Essential for Real-time Video performance.
+
+5. FILE STRUCTURE
 -----------------
-/src
-  /style_transfer   - Core model definitions (Transformer, VGG Loss)
-  /checkpoints      - Trained model weights
-  train_v2.py       - Main training script (Dual GPU optimized)
-  server.py         - Backend server code (FastAPI)
-main.py             - Project Entry Point (Launcher)
-README.txt          - This file
-docs/               - Technical documentation & plans
+.
+├── src/
+│   ├── server.py           # Unified Backend (API + Streaming)
+│   ├── train_manager.py    # Training orchestration script
+│   ├── export_onnx.py      # Model converter (H5 -> ONNX FP16)
+│   ├── models/             # Exported models (.h5, .onnx)
+│   ├── styles/             # Style reference images
+│   ├── data/               # Training dataset (COCO)
+│   └── frontend/           # Next.js Frontend source
+├── main.py                 # Project Launcher
+├── README.txt              # This file
+└── README_cn.md            # Chinese Documentation
 
-5. CREDITS & REFERENCES
+6. CREDITS & REFERENCES
 -----------------------
 - Base logic adapted from TensorFlow Tutorials: https://www.tensorflow.org/tutorials/generative/style_transfer
 - Fast Style Transfer Network: Johnson et al. (2016)
 - VGG16 Pre-trained Weights: Keras Applications
-
------------------------------------------------------
-Declaration: This work is original and submitted for AIT102.

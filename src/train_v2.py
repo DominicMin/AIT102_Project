@@ -199,6 +199,30 @@ class StyleTransferTrainerV2(StyleTransferTrainer):
         self.transformer.save_weights(export_path)
         print("Done.")
 
+        # --- AUTO-ONNX EXPORT ---
+        try:
+            import tf2onnx
+            
+            onnx_filename = f"{self.style_name}_{current_date}_loss{int(final_loss)}.onnx"
+            onnx_path = os.path.join(self.output_model_dir, onnx_filename)
+            
+            print(f"[Auto-Export] Converting to ONNX: {onnx_path}...")
+            
+            # Define input signature [1, H, W, 3] or [None, None, None, 3] for dynamic
+            spec = (tf.TensorSpec((1, 256, 256, 3), tf.float32, name="input_image"),)
+            
+            # Convert
+            import onnx
+            model_proto, _ = tf2onnx.convert.from_keras(self.transformer, input_signature=spec, opset=13)
+            onnx.save(model_proto, onnx_path)
+            
+            print(f"[Auto-Export] ONNX Saved! Size: {os.path.getsize(onnx_path)/1024/1024:.2f} MB")
+            
+        except ImportError:
+            print("[Warning] tf2onnx not installed. Skipping auto-export.")
+        except Exception as e:
+            print(f"[Error] ONNX export failed: {e}")
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--style", type=str, default="styles/ukiyoe.jpg")

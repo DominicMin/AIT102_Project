@@ -41,67 +41,55 @@ Python 依赖库 (安装命令见下文)：
    $ conda activate ait
    $ pip install -r src/requirements.txt
 
-步骤 2: 启动统一启动器
-   在项目根目录下运行：
+步骤 2: 启动统一启动器 (Project Launcher)
+   这是管理整个项目的推荐方式：
    $ python main.py
 
-步骤 3: 选择功能模式
-   - [1] 启动演示服务器 (Start Demo Server)
-     启动后访问Web界面：http://localhost:3000 (前端) 或 http://localhost:8000 (API文档)
-   
-   - [2] 启动模型训练 (Start Model Training)
-     使用 `src/data/` 中的图片重新训练风格模型。
-     注意：这是一个计算密集型任务。
+   > 菜单选项说明：
+   > [1] Start Unified Server & Frontend (一键启动)
+   >     - 自动开启两个新窗口，分别运行后端 (Port 8000) 和前端 (Port 3000)。
+   >     - 这是演示 Demo 的最佳方式。
+   >
+   > [2] Train New Style (训练模式)
+   >     - 输入风格名称（如 `monet`），自动调用训练管理器。
+   >     - 需要双 RTX 3090 (48GB VRAM) 支持。
 
-   - [3] 启动前端 (Start Frontend)
-     即 Next.js 现代化界面。请新建一个终端窗口：
-     ```bash
-     cd frontend
-     npm install  # 安装依赖 (首次运行需要)
-     npm run dev  # 启动开发服务器
-     ```
-     访问 UI：http://localhost:3000
+4. 核心脚本说明 (Core Scripts)
+-----------------
+如果你想单独运行某个模块，可以使用以下命令：
 
-   - [4] 启动实时视频演示 (Real-time Video Demo / God Mode)
-     运行本地 ONNX 推理引擎，支持 DirectML (GPU) 加速。
-     已在 RTX 3090 / 4060 上验证 FP16 优化性能。
-     
-     使用方法：
-     ```bash
-     python src/local_demo_onnx.py "src/models/exported/your_model.onnx" --width 640
-     ```
+[A] 启动后端服务 (Server)
+    $ python src/server.py
+    # 启动 FastAPI 服务，监听 8000 端口
+    # 同时加载 TensorFlow模型 和 ONNX上帝模式模型
 
-     性能说明：
-     - FP32 模型 (默认): 约 5 FPS @ 1280p
-     - FP16 模型 (优化后): 约 20 FPS @ 1280p (推荐)
-     如何将模型转为 FP16:
-     ```bash
-     python src/optimize_onnx.py "path/to/model.onnx"
-     ```
+[B] 模型训练管理器 (Training Manager)
+    $ python src/train_manager.py --style <style_name>
+    # 例如: python src/train_manager.py --style picasso
+    # 自动执行：数据加载 -> VGG特征提取 -> 双卡训练 -> 模型导出 -> ONNX转换
 
-4. 目录结构 (File Structure)
+[C] ONNX 模型优化 (Optimizer)
+    $ python src/export_onnx.py --model_dir src/models/exported --fp16
+    # 将训练好的 .h5模型 转换为 .onnx 并进行 FP16 半精度优化
+    # 这是实现 RTX 4060 实时推理的关键
+
+5. 目录结构 (File Structure)
 -----------------
 .
 ├── src/
-│   ├── style_transfer/     # 核心算法 (Transformer, VGG Loss)
-│   ├── checkpoints/        # 训练好的模型权重
-│   ├── frontend/           # Next.js 前端源代码
-│   ├── app.py              # 后端 API 服务 (FastAPI)
-│   ├── train_v2.py         # V2版本训练脚本 (VGG16 + Pixel Loss)
-│   └── finetune_v2.py      # 微调脚本
-├── data/
-│   └── val2017/            # COCO 验证集 (训练素材)
-├── docs/                   # 技术文档
-│   └── technical_handover_guide.md # 技术交接指南
-├── main.py                 # 项目统一入口
+│   ├── server.py           # 核心后端：集成 TF推理 + ONNX实时流 + MJPEG服务
+│   ├── train_manager.py    # 训练管理器：负责调用训练流程管理
+│   ├── export_onnx.py      # 模型转换器：H5 -> ONNX (FP16/FP32)
+│   ├── models/             # 存放训练模型 (.h5, .onnx)
+│   ├── styles/             # 风格参考图片 (.jpg)
+│   ├── data/               # 训练数据集 (COCO)
+│   └── frontend/           # Next.js 前端项目
+├── main.py                 # 项目统一入口 (CLI Launcher)
 ├── README.txt              # 英文说明文档
 └── README_cn.md            # 中文说明文档 (本文)
 
-5. 致谢与引用 (Credits)
+6. 致谢与引用 (Credits)
 -----------------------
 - 基础算法改编自 TensorFlow 官方教程
 - 快速风格迁移网络 proposed by Johnson et al. (ECCV 2016)
 - 预训练 VGG16 权重来自 Keras Applications
-
------------------------------------------------------
-声明：本项目为 AIT102 课程原创作品。
