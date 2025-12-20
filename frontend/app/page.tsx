@@ -82,7 +82,7 @@ export default function Home() {
       <header className="border-b border-gray-800 backdrop-blur-sm bg-black/30">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">
               AI Style Transfer
             </h1>
             <div className="flex items-center gap-4 text-sm text-gray-400">
@@ -103,7 +103,7 @@ export default function Home() {
               exit={{ opacity: 0, y: -20 }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-6 animate-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+              <h2 className="text-5xl md:text-7xl font-bold mb-6 animate-gradient bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
                 Transform Your Art
               </h2>
               <p className="text-xl text-gray-400 mb-12">
@@ -119,7 +119,7 @@ export default function Home() {
                   onDrop={handleDrop}
                   className={`relative border-2 border-dashed rounded-2xl p-12 transition-all duration-300 ${
                     dragActive
-                      ? 'border-purple-500 bg-purple-500/10'
+                      ? 'border-blue-500 bg-blue-500/10'
                       : previewUrl
                       ? 'border-gray-700'
                       : 'border-gray-700 hover:border-gray-600'
@@ -180,7 +180,7 @@ export default function Home() {
                   <button
                     onClick={handleTransformAll}
                     disabled={loading}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg hover:from-purple-700 hover:to-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-cyan-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
                   >
                     {loading ? (
                       <span className="flex items-center justify-center gap-2">
@@ -223,9 +223,22 @@ export default function Home() {
                     setSelectedFile(null)
                     setPreviewUrl(null)
                   }}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xl font-bold"
                 >
-                  ← Try another image
+                  <svg 
+                    className="w-6 h-6" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                  </svg>
+                  Try another image
                 </button>
               </div>
 
@@ -237,7 +250,7 @@ export default function Home() {
                   animate={{ scale: 1, opacity: 1 }}
                   className="relative group"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-300"></div>
                   <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-xl">
                     <img
                       src={previewUrl || ''}

@@ -29,7 +29,7 @@ app.add_middleware(
 )
 
 models = {}
-STYLES = ["sketch"]
+STYLES = ["sketch", "cyberpunk", "picasso", "vangogh"]
 
 MODEL_DIR = Path(__file__).parent / "models" / "exported"
 STYLE_DIR = Path(__file__).parent / "styles"
@@ -37,36 +37,46 @@ STYLE_DIR = Path(__file__).parent / "styles"
 
 def load_models():
     """Load all style transfer models at startup"""
-    global models
+    global models, STYLES
     
     logger.info("Loading models...")
     
     if not MODEL_DIR.exists():
         logger.warning(f"Models directory not found: {MODEL_DIR}")
         logger.info("Using dummy models for demo purposes")
-
         return
     
-    model_path = MODEL_DIR / "sketch_20251219_loss699623.h5"
+    # Find all .h5 model files
+    model_files = list(MODEL_DIR.glob("*.h5"))
     
-    if model_path.exists():
+    if not model_files:
+        logger.warning("No model files found in models directory")
+        return
+    
+    loaded_styles = []
+    
+    for model_path in model_files:
+        # Extract style name from filename (e.g., sketch_20251219_loss699623.h5 -> sketch)
+        style_name = model_path.stem.split('_')[0]
+        
         try:
-            logger.info("Creating model architecture...")
+            logger.info(f"Loading {style_name} model from {model_path.name}...")
             model = make_style_transfer_network(input_shape=(256, 256, 3))
-            
-            logger.info(f"Loading weights from {model_path}")
             model.load_weights(str(model_path))
             
-            models["sketch"] = model
-            logger.info(f"Successfully loaded sketch model!")
+            models[style_name] = model
+            loaded_styles.append(style_name)
+            logger.info(f"✓ Successfully loaded {style_name} model!")
+            
         except Exception as e:
-            logger.error(f"Failed to load sketch model: {e}")
+            logger.error(f"✗ Failed to load {style_name} model: {e}")
             import traceback
             traceback.print_exc()
-    else:
-        logger.warning(f"Model not found: {model_path}")
     
-    if not models:
+    if loaded_styles:
+        STYLES = loaded_styles
+        logger.info(f"Loaded {len(models)} models: {', '.join(STYLES)}")
+    else:
         logger.warning("No models loaded. Using demo mode.")
 
 
