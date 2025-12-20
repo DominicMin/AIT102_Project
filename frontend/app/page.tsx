@@ -262,12 +262,56 @@ export default function Home() {
                   )}
                 </div>
 
+                {/* Real-time Demo Card */}
+                {!previewUrl && (
+                  <div className="mt-8">
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
+                      <a
+                        href="/realtime"
+                        className="relative block bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all"
+                      >
+                        <div className="flex items-center gap-6">
+                          <div className="flex-shrink-0">
+                            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl">
+                              🎥
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                              Real-time Video Demo (God Mode)
+                            </h3>
+                            <p className="text-gray-400">
+                              Real-time camera style transfer demo - Experience AI neural network processing power
+                            </p>
+                          </div>
+                          <div className="flex-shrink-0">
+                            <svg 
+                              className="w-8 h-8 text-blue-400" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                              strokeWidth={2}
+                            >
+                              <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                )}
+
                 {previewUrl && (
                   <div className="space-y-4">
                     {videoProcessing && (
-                      <div className="p-6 bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl border border-purple-500/30">
+                      <div className="p-6 bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-xl border border-blue-500/30">
                         <div className="flex items-center justify-center gap-3 mb-2">
-                          <svg className="animate-spin h-6 w-6 text-purple-400" viewBox="0 0 24 24">
+                          <svg className="animate-spin h-6 w-6 text-blue-400" viewBox="0 0 24 24">
                             <circle
                               className="opacity-25"
                               cx="12"
@@ -283,9 +327,9 @@ export default function Home() {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             />
                           </svg>
-                          <span className="text-lg font-semibold text-purple-200">Processing Video...</span>
+                          <span className="text-lg font-semibold text-blue-200">Processing Video...</span>
                         </div>
-                        <p className="text-sm text-purple-300 text-center">This may take several minutes depending on video length</p>
+                        <p className="text-sm text-blue-300 text-center">This may take several minutes depending on video length</p>
                       </div>
                     )}
                     
@@ -323,51 +367,53 @@ export default function Home() {
                       <button
                         onClick={() => setShowVideoModal(true)}
                         disabled={videoProcessing}
-                        className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg hover:from-purple-700 hover:to-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+                        className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-cyan-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
                       >
                         🎬 Process Video with Style
                       </button>
                     )}
                     
                     {processedVideoUrl && isVideo && (
-                      <div className="mt-6 p-6 bg-gray-800 rounded-xl">
-                        <h3 className="text-xl font-bold mb-4">Processed Video</h3>
-                        <video
-                          key={processedVideoUrl}
-                          src={processedVideoUrl}
-                          controls
-                          controlsList="nodownload"
-                          preload="auto"
-                          playsInline
-                          muted
-                          className="w-full rounded-lg shadow-2xl mb-4"
-                          style={{ display: 'block' }}
-                          onError={(e) => {
-                            console.error('Processed video error:', e)
-                            const target = e.target as HTMLVideoElement
-                            console.error('Processed video error details:', {
-                              error: target.error,
-                              networkState: target.networkState,
-                              readyState: target.readyState
-                            })
-                          }}
-                          onLoadedMetadata={(e) => {
-                            console.log('Processed video metadata loaded')
-                            const target = e.target as HTMLVideoElement
-                            console.log('Processed video details:', {
-                              duration: target.duration,
-                              videoWidth: target.videoWidth,
-                              videoHeight: target.videoHeight
-                            })
-                          }}
-                        />
-                        <a
-                          href={processedVideoUrl}
-                          download={`styled_video_${selectedStyle}.mp4`}
-                          className="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 rounded-full font-semibold transition-colors"
-                        >
-                          📥 Download Video
-                        </a>
+                      <div className="mt-6 max-w-4xl mx-auto">
+                        <div className="p-8 bg-gray-800 rounded-xl">
+                          <h3 className="text-xl font-bold mb-4">Processed Video</h3>
+                          <video
+                            key={processedVideoUrl}
+                            src={processedVideoUrl}
+                            controls
+                            controlsList="nodownload"
+                            preload="auto"
+                            playsInline
+                            muted
+                            className="w-full rounded-lg shadow-2xl mb-6"
+                            style={{ display: 'block' }}
+                            onError={(e) => {
+                              console.error('Processed video error:', e)
+                              const target = e.target as HTMLVideoElement
+                              console.error('Processed video error details:', {
+                                error: target.error,
+                                networkState: target.networkState,
+                                readyState: target.readyState
+                              })
+                            }}
+                            onLoadedMetadata={(e) => {
+                              console.log('Processed video metadata loaded')
+                              const target = e.target as HTMLVideoElement
+                              console.log('Processed video details:', {
+                                duration: target.duration,
+                                videoWidth: target.videoWidth,
+                                videoHeight: target.videoHeight
+                              })
+                            }}
+                          />
+                          <a
+                            href={processedVideoUrl}
+                            download={`styled_video_${selectedStyle}.mp4`}
+                            className="w-full inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg hover:shadow-xl text-center"
+                          >
+                            📥 Download Video
+                          </a>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -494,7 +540,7 @@ export default function Home() {
               <button
                 onClick={handleTransformVideo}
                 disabled={videoProcessing}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all disabled:opacity-50"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all disabled:opacity-50"
               >
                 {videoProcessing ? (
                   <span className="flex items-center justify-center gap-2">
