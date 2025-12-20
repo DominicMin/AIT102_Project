@@ -9,28 +9,49 @@ echo "==========================================="
 echo "  Starting Training Queue at $(date)"
 echo "==========================================="
 
-# 1. Picasso
-echo ">>> Starting Picasso Training..."
+# # 1. Picasso
+# echo ">>> Starting Picasso Training..."
 
-python train_manager.py --style picasso
+# python train_manager.py --style picasso
+# if [ $? -ne 0 ]; then
+#     echo "Picasso failed! Continuing..."
+#     # Optionally break or continue based on preference. 
+#     # Continuing is safer for overnight runs so others might finish.
+# fi
+
+# # 2. Van Gogh
+# echo ">>> Starting Van Gogh Training..."
+# python train_manager.py --style vangogh
+# if [ $? -ne 0 ]; then
+#     echo "Van Gogh failed! Continuing..."
+# fi
+
+# # 3. Cyberpunk
+# echo ">>> Starting Cyberpunk Training..."
+# python train_manager.py --style cyberpunk
+# if [ $? -ne 0 ]; then
+#     echo "Cyberpunk failed! Continuing..."
+# fi
+
+# 4. Monet
+echo ">>> Starting Monet Training..."
+python train_manager.py --style monet
 if [ $? -ne 0 ]; then
-    echo "Picasso failed! Continuing..."
-    # Optionally break or continue based on preference. 
-    # Continuing is safer for overnight runs so others might finish.
+    echo "Monet failed! Continuing..."
 fi
 
-# 2. Van Gogh
-echo ">>> Starting Van Gogh Training..."
-python train_manager.py --style vangogh
+# 5. Seurat
+echo ">>> Starting Seurat Training..."
+python train_manager.py --style seurat
 if [ $? -ne 0 ]; then
-    echo "Van Gogh failed! Continuing..."
+    echo "Seurat failed! Continuing..."
 fi
 
-# 3. Cyberpunk
-echo ">>> Starting Cyberpunk Training..."
-python train_manager.py --style cyberpunk
+# 6. Wu Guanzhong
+echo ">>> Starting Wu Guanzhong Training..."
+python train_manager.py --style wuguanzhong
 if [ $? -ne 0 ]; then
-    echo "Cyberpunk failed! Continuing..."
+    echo "Wu Guanzhong failed! Continuing..."
 fi
 
 # End

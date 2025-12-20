@@ -1,32 +1,35 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response, JSONResponse, FileResponse, StreamingResponse
-from fastapi.staticfiles import StaticFiles
-import tensorflow as tf
-import numpy as np
-from PIL import Image
-import io
-import base64
-import os
-from pathlib import Path
-import logging
-import sys
-import cv2
-import tempfile
-import traceback
+
+import argparse
 import asyncio
+import json
+import logging
+import os
+import ssl
+import sys
+import time
+import uuid
 
-sys.path.insert(0, str(Path(__file__).parent / "style_transfer"))
-from model import make_style_transfer_network
+import cv2
+import numpy as np
+import tensorflow as tf
+from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
+from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRelay
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, JSONResponse
+import base64
 
-sys.path.insert(0, str(Path(__file__).parent))
-from video_demo import process_video
+# Ensure local imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.style_transfer.model import make_style_transfer_network
 
+# Setup Logger
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("server")
 
-app = FastAPI(title="AI Style Transfer API", version="1.0.0")
+app = FastAPI()
 
+# Allow CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -35,442 +38,356 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-models = {}
-STYLES = ["sketch", "cyberpunk", "picasso", "vangogh"]
+# Global Variables
+pcs = set()
+relay = MediaRelay()
+style_model = None
 
-MODEL_DIR = Path(__file__).parent / "models" / "exported"
-STYLE_DIR = Path(__file__).parent / "styles"
+# Configuration
+MODEL_PATH = "src/models/exported/sketch_20251219_loss699623.h5"  # Default hardcoded for MVP
+INPUT_SHAPE = (None, None, 3)
 
+def load_style_model():
+    global style_model
+    if style_model is None:
+        logger.info(f"Loading Style Model from {MODEL_PATH}...")
+        try:
+            # Dynamic input shape for flexible resolution
+            model = make_style_transfer_network(input_shape=INPUT_SHAPE)
+            # Initialize dummy
+            model(tf.zeros((1, 256, 256, 3)))
+            model.load_weights(MODEL_PATH)
+            style_model = model
+            logger.info("Model loaded successfully.")
+        except Exception as e:
+            logger.error(f"Failed to load model: {e}")
 
-def load_models():
-    """Load all style transfer models at startup"""
-    global models, STYLES
-    
-    logger.info("Loading models...")
-    
-    if not MODEL_DIR.exists():
-        logger.warning(f"Models directory not found: {MODEL_DIR}")
-        logger.info("Using dummy models for demo purposes")
-        return
-    
-    model_files = list(MODEL_DIR.glob("*.h5"))
-    
-    if not model_files:
-        logger.warning("No model files found in models directory")
-        return
-    
-    loaded_styles = []
-    
-    for model_path in model_files:
-        style_name = model_path.stem.split('_')[0]
+class StyleTransformTrack(MediaStreamTrack):
+    """
+    A video stream track that transforms frames using a Style Transfer model.
+    """
+    kind = "video"
+
+    def __init__(self, track):
+        super().__init__()
+        self.track = track
+        self.frame_count = 0
+        self.start_time = time.time()
         
-        try:
-            logger.info(f"Loading {style_name} model from {model_path.name}...")
-            model = make_style_transfer_network(input_shape=(256, 256, 3))
-            model.load_weights(str(model_path))
+        # Concrete function for faster inference? 
+        # For variable resolution, we might rely on the dynamic graph or cache concrete functions per resolution.
+        # For MVP, let's stick to eager-ish execution or simple @tf.function wrapped model.
+        
+    async def recv(self):
+        frame = await self.track.recv()
+        
+        # Convert to numpy (YUV/RGB)
+        # aiortc VideoFrame is typically YUV420P. to_ndarray(format="bgr24") converts it.
+        img = frame.to_ndarray(format="bgr24")
+        
+        # Prepare for Model
+        # CV2 BGR -> RGB
+        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        img_tensor = tf.convert_to_tensor(img_rgb, dtype=tf.float32)
+        img_tensor = tf.expand_dims(img_tensor, 0) # (1, H, W, 3)
+        
+        # Inference
+        if style_model:
+            # Run inference
+            # Note: Running TF in async loop might block. 
+            # Ideally should run in a separate thread/executor if it's slow.
+            # But 3090 is fast enough for <10ms, so maybe okay directly.
+            output_tensor = style_model(img_tensor, training=False)
             
-            models[style_name] = model
-            loaded_styles.append(style_name)
-            logger.info(f"✓ Successfully loaded {style_name} model!")
+            # Postprocess
+            output_tensor = tf.clip_by_value(output_tensor, 0.0, 255.0)
+            output_img = output_tensor[0].numpy().astype(np.uint8)
             
-        except Exception as e:
-            logger.error(f"✗ Failed to load {style_name} model: {e}")
-            import traceback
-            traceback.print_exc()
-    
-    if loaded_styles:
-        STYLES = loaded_styles
-        logger.info(f"Loaded {len(models)} models: {', '.join(STYLES)}")
-    else:
-        logger.warning("No models loaded. Using demo mode.")
+            # RGB -> BGR
+            new_frame_img = cv2.cvtColor(output_img, cv2.COLOR_RGB2BGR)
+        else:
+            new_frame_img = img
 
-
-def preprocess_image(image_bytes: bytes, target_size=(256, 256)):
-    """Preprocess image for model input"""
-    image = Image.open(io.BytesIO(image_bytes))
-    
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-    
-    image = image.resize(target_size, Image.Resampling.LANCZOS)
-
-    img_array = np.array(image).astype(np.float32) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-    
-    return img_array, image
-
-
-def postprocess_image(output_array):
-    """Convert model output to PIL Image"""
-    output = np.squeeze(output_array, axis=0)
-    output = np.clip(output, 0, 255).astype(np.uint8)
-    
-    return Image.fromarray(output)
-
-
-def apply_style_transform(image_bytes: bytes, style_id: str):
-    """Apply style transfer to an image"""
-    img_array, original_size = preprocess_image(image_bytes)
-    
-    if style_id in models:
-        try:
-            output = models[style_id].predict(img_array, verbose=0)
-            result_image = postprocess_image(output)
-        except Exception as e:
-            logger.error(f"Model prediction failed: {e}")
-            result_image = Image.fromarray((img_array[0] * 255).astype(np.uint8))
-    else:
-        img = Image.fromarray((img_array[0] * 255).astype(np.uint8))
-        result_image = apply_demo_style(img, style_id)
-    
-    return result_image
-
-
-def apply_demo_style(image: Image.Image, style_id: str):
-    """Apply demo style transforms when models are not available"""
-    import numpy as np
-    
-    img_array = np.array(image)
-    
-    if style_id == "picasso":
-        img_array = np.clip(img_array * 1.2, 0, 255).astype(np.uint8)
-    elif style_id == "vangogh":
-        img_array[:, :, 2] = np.clip(img_array[:, :, 2] * 1.3, 0, 255)
-    elif style_id == "ukiyoe":
-        sepia = np.array([[0.393, 0.769, 0.189], [0.349, 0.686, 0.168], [0.272, 0.534, 0.131]])
-        img_array = np.dot(img_array, sepia.T)
-        img_array = np.clip(img_array, 0, 255).astype(np.uint8)
-    elif style_id == "cyberpunk":
-        img_array[:, :, 0] = np.clip(img_array[:, :, 0] * 1.3, 0, 255)
-        img_array[:, :, 2] = np.clip(img_array[:, :, 2] * 1.3, 0, 255)
-        img_array = img_array.astype(np.uint8)
-    elif style_id == "sketch":
-        gray = np.dot(img_array, [0.299, 0.587, 0.114])
-        img_array = np.stack([gray, gray, gray], axis=-1).astype(np.uint8)
-    
-    return Image.fromarray(img_array)
-
+        # Rebuild VideoFrame
+        from av import VideoFrame
+        new_frame = VideoFrame.from_ndarray(new_frame_img, format="bgr24")
+        new_frame.pts = frame.pts
+        new_frame.time_base = frame.time_base
+        
+        # Update Stats
+        self.frame_count += 1
+        return new_frame
 
 @app.on_event("startup")
 async def startup_event():
-    """Load models on startup"""
-    load_models()
-    logger.info("Server started successfully!")
+    load_style_model()
 
+@app.post("/offer")
+async def offer(request: Request):
+    params = await request.json()
+    offer = RTCSessionDescription(sdp=params["sdp"], type=params["type"])
+
+    pc = RTCPeerConnection()
+    pc_id = "PeerConnection(%s)" % uuid.uuid4()
+    pcs.add(pc)
+
+    logger.info("Created for %s", request.client.host)
+
+    @pc.on("datachannel")
+    def on_datachannel(channel):
+        @channel.on("message")
+        def on_message(message):
+            if isinstance(message, str) and message.startswith("ping"):
+                channel.send("pong" + message[4:])
+
+    @pc.on("connectionstatechange")
+    async def on_connectionstatechange():
+        logger.info("Connection state is %s", pc.connectionState)
+        if pc.connectionState == "failed":
+            await pc.close()
+            pcs.discard(pc)
+
+    @pc.on("track")
+    def on_track(track):
+        logger.info("Track %s received", track.kind)
+
+        if track.kind == "video":
+            # Hook up the style transfer track
+            local_video = StyleTransformTrack(track)
+            pc.addTrack(local_video)
+
+        @track.on("ended")
+        async def on_ended():
+            logger.info("Track %s ended", track.kind)
+            # await pc.close()
+
+    # Handle Offer
+    await pc.setRemoteDescription(offer)
+    
+    # Create Answer
+    answer = await pc.createAnswer()
+    await pc.setLocalDescription(answer)
+
+    return JSONResponse(
+        content={"sdp": pc.localDescription.sdp, "type": pc.localDescription.type}
+    )
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    logger.info("WebSocket connected")
+    try:
+        while True:
+            # Receive frame (expecting bytes or base64)
+            data = await websocket.receive_text()
+            
+            # Assuming base64 encoded jpeg/png from canvas
+            # Format: "data:image/jpeg;base64,....."
+            if "," in data:
+                header, encoded = data.split(",", 1)
+            else:
+                encoded = data
+                
+            # Decode
+            image_data = base64.b64decode(encoded)
+            np_arr = np.frombuffer(image_data, np.uint8)
+            img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+            
+            if img is not None:
+                # Inference
+                # CV2 BGR -> RGB
+                img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                img_tensor = tf.convert_to_tensor(img_rgb, dtype=tf.float32)
+                img_tensor = tf.expand_dims(img_tensor, 0)
+                
+                # Model
+                if style_model:
+                     output_tensor = style_model(img_tensor, training=False)
+                     output_tensor = tf.clip_by_value(output_tensor, 0.0, 255.0)
+                     output_img = output_tensor[0].numpy().astype(np.uint8)
+                     img_out = cv2.cvtColor(output_img, cv2.COLOR_RGB2BGR)
+                else:
+                     img_out = img
+                
+                # Encode back to JPEG
+                _, buffer = cv2.imencode('.jpg', img_out)
+                jpg_as_text = base64.b64encode(buffer).decode('utf-8')
+                
+                # Send back
+                await websocket.send_text(f"data:image/jpeg;base64,{jpg_as_text}")
+            
+    except WebSocketDisconnect:
+        logger.info("WebSocket disconnected")
+    except Exception as e:
+        logger.error(f"WebSocket Error: {e}")
+
+HTML_CONTENT = """
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Style Transfer</title>
+</head>
+<body>
+    <h2>Style Transfer Test</h2>
+    <div style="margin-bottom: 20px;">
+        <button onclick="startWebRTC()">Start WebRTC (Best Quality)</button>
+        <button onclick="startWebSocket()">Start WebSocket (Tunnel Safe)</button>
+        <button onclick="stop()">Stop</button>
+    </div>
+    
+    <div style="display: flex; gap: 10px;">
+        <div style="position: relative;">
+             <h3>Input (Camera)</h3>
+             <video id="videoInput" autoplay playsinline muted style="width: 320px; border: 1px solid black; transform: scaleX(-1);"></video>
+             <!-- Hidden Canvas for WebSocket Frame Capture -->
+             <canvas id="canvasInput" width="320" height="240" style="display:none;"></canvas>
+        </div>
+        <div>
+             <h3>Output (Server)</h3>
+             <video id="videoOutput" autoplay playsinline style="width: 320px; border: 1px solid black; display:none;"></video>
+             <img id="imageOutput" style="width: 320px; height: 240px; border: 1px solid black; display:none; background: #eee;" />
+        </div>
+    </div>
+    
+    <div id="status" style="margin-top: 10px; color: red;"></div>
+
+    <script>
+    var pc = null;
+    var ws = null;
+    var wsInterval = null;
+    
+    function stop() {
+        if (pc) {
+            pc.close();
+            pc = null;
+        }
+        if (ws) {
+            ws.close();
+            ws = null;
+        }
+        if (wsInterval) {
+            clearInterval(wsInterval);
+            wsInterval = null;
+        }
+        document.getElementById('videoOutput').style.display = 'none';
+        document.getElementById('imageOutput').style.display = 'none';
+    }
+
+    // --- WebSocket Mode (Safe Fallback) ---
+    function startWebSocket() {
+        stop();
+        document.getElementById('status').innerText = "Connecting via WebSocket...";
+        
+        var videoIn = document.getElementById('videoInput');
+        var canvasIn = document.getElementById('canvasInput');
+        var ctx = canvasIn.getContext('2d');
+        var imgOut = document.getElementById('imageOutput');
+        
+        imgOut.style.display = 'block';
+        
+        // 1. Start Camera
+        navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 } }).then(function(stream) {
+            videoIn.srcObject = stream;
+            
+            // 2. Connect WS
+            var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            // Handle specific port forwarding scenario where host might be localhost:8000
+            ws = new WebSocket(protocol + '//' + window.location.host + '/ws');
+            
+            ws.onopen = function() {
+                document.getElementById('status').innerText = "WebSocket Connected! Streaming...";
+                
+                // 3. Loop: Capture & Send
+                wsInterval = setInterval(function() {
+                    if (ws.readyState === WebSocket.OPEN) {
+                        ctx.drawImage(videoIn, 0, 0, 320, 240);
+                        var data = canvasIn.toDataURL('image/jpeg', 0.7); // Quality 0.7
+                        ws.send(data);
+                    }
+                }, 100); // 10 FPS target for upload
+            };
+            
+            ws.onmessage = function(evt) {
+                // Receive frame
+                imgOut.src = evt.data;
+            };
+            
+            ws.onerror = function(e) { console.error(e); };
+            
+        }).catch(function(e) {
+            document.getElementById('status').innerText = "Camera Error: " + e;
+        });
+    }
+
+    // --- WebRTC Mode ---
+    function startWebRTC() {
+        stop();
+        document.getElementById('status').innerText = "Connecting via WebRTC...";
+        document.getElementById('videoOutput').style.display = 'block';
+        
+        var config = {
+            sdpSemantics: 'unified-plan',
+            iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }]
+        };
+        pc = new RTCPeerConnection(config);
+
+        pc.addEventListener('track', function(evt) {
+            if (evt.track.kind == 'video') {
+                document.getElementById('videoOutput').srcObject = evt.streams[0];
+                document.getElementById('status').innerText = "WebRTC Streaming!";
+            }
+        });
+
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(function(stream) {
+            document.getElementById('videoInput').srcObject = stream;
+            stream.getTracks().forEach(track => pc.addTrack(track, stream));
+            return pc.createOffer();
+        }).then(function(offer) {
+            return pc.setLocalDescription(offer);
+        }).then(function() {
+            return new Promise(function(resolve) {
+                if (pc.iceGatheringState === 'complete') {
+                    resolve();
+                } else {
+                    function checkState() {
+                        if (pc.iceGatheringState === 'complete') {
+                            pc.removeEventListener('icecandidate', checkState);
+                            resolve();
+                        }
+                    }
+                    pc.addEventListener('icecandidate', checkState);
+                }
+            });
+        }).then(function() {
+            var offer = pc.localDescription;
+            return fetch('/offer', {
+                body: JSON.stringify({
+                    sdp: offer.sdp,
+                    type: offer.type,
+                }),
+                headers: { 'Content-Type': 'application/json' },
+                method: 'POST'
+            });
+        }).then(function(response) {
+            return response.json();
+        }).then(function(answer) {
+            return pc.setRemoteDescription(answer);
+        }).catch(function(e) {
+            document.getElementById('status').innerText = e;
+        });
+    }
+    </script>
+</body>
+</html>
+"""
 
 @app.get("/")
-async def root():
-    return {
-        "message": "AI Style Transfer API",
-        "version": "1.0.0",
-        "status": "running",
-        "available_styles": STYLES,
-        "models_loaded": list(models.keys())
-    }
-
-
-@app.get("/styles")
-async def get_styles():
-    """Get list of available styles"""
-    return {
-        "styles": [
-            {
-                "id": style,
-                "name": style.capitalize(),
-                "preview_url": f"/static/previews/{style}.jpg"
-            }
-            for style in STYLES
-        ]
-    }
-
-
-@app.post("/transform")
-async def transform_single(file: UploadFile = File(...), style_id: str = "sketch"):
-    """Transform a single image with sketch style"""
-    if style_id not in STYLES:
-        raise HTTPException(status_code=400, detail=f"Invalid style. Choose from: {STYLES}")
-    
-    try:
-        image_bytes = await file.read()
-        
-        result_image = apply_style_transform(image_bytes, style_id)
-        
-        output_buffer = io.BytesIO()
-        result_image.save(output_buffer, format='JPEG', quality=95)
-        output_buffer.seek(0)
-        
-        return Response(content=output_buffer.getvalue(), media_type="image/jpeg")
-    
-    except Exception as e:
-        logger.error(f"Transform failed: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/transform_all")
-async def transform_all(file: UploadFile = File(...)):
-    """Transform image with all available styles (parallel processing)"""
-    try:
-        image_bytes = await file.read()
-        
-        results = []
-
-        for style_id in STYLES:
-            try:
-                result_image = apply_style_transform(image_bytes, style_id)
-                
-                output_buffer = io.BytesIO()
-                result_image.save(output_buffer, format='JPEG', quality=90)
-                img_base64 = base64.b64encode(output_buffer.getvalue()).decode()
-                
-                results.append({
-                    "style_id": style_id,
-                    "image_base64": img_base64
-                })
-                
-                logger.info(f"✓ Processed style: {style_id}")
-                
-            except Exception as e:
-                logger.error(f"✗ Failed to process {style_id}: {e}")
-        
-        return JSONResponse(content={"results": results})
-    
-    except Exception as e:
-        logger.error(f"Transform all failed: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.get("/health")
-async def health_check():
-    """Health check endpoint"""
-    return {
-        "status": "healthy",
-        "models_loaded": len(models),
-        "available_styles": STYLES,
-        "model_dir": str(MODEL_DIR),
-        "model_dir_exists": MODEL_DIR.exists()
-    }
-
-
-@app.get("/test_video_imports")
-async def test_video_imports():
-    """Test if video processing imports work"""
-    results = {
-        "cv2_available": False,
-        "process_video_available": False,
-        "model_available": False
-    }
-    
-    try:
-        import cv2
-        results["cv2_available"] = True
-        results["cv2_version"] = cv2.__version__
-    except Exception as e:
-        results["cv2_error"] = str(e)
-    
-    try:
-        from video_demo import process_video
-        results["process_video_available"] = True
-    except Exception as e:
-        results["process_video_error"] = str(e)
-    
-    try:
-        from style_transfer.model import make_style_transfer_network
-        results["model_available"] = True
-    except Exception as e:
-        results["model_error"] = str(e)
-    
-    return results
-
-
-@app.post("/transform_video")
-async def transform_video(file: UploadFile = File(...), style_id: str = "sketch", width: int = None):
-    """Transform a video with the selected style"""
-    if style_id not in STYLES:
-        raise HTTPException(status_code=400, detail=f"Invalid style. Choose from: {STYLES}")
-    
-    temp_input_path = None
-    temp_output_path = None
-    
-    try:
-        logger.info(f"Starting video transformation with style: {style_id}")
-        logger.info(f"Input file: {file.filename}, size: {file.size if hasattr(file, 'size') else 'unknown'}")
-        
-        temp_input = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
-        temp_output = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
-        temp_input_path = temp_input.name
-        temp_output_path = temp_output.name
-        
-        logger.info(f"Created temp files: input={temp_input_path}, output={temp_output_path}")
-        
-        video_bytes = await file.read()
-        logger.info(f"Read {len(video_bytes)} bytes from uploaded file")
-        
-        temp_input.write(video_bytes)
-        temp_input.close()
-        
-        logger.info(f"Saved video to temp file: {temp_input_path}")
-        
-        model_files = list(MODEL_DIR.glob(f"{style_id}_*.h5"))
-        
-        if model_files:
-            model_path = str(model_files[0])
-            logger.info(f"Using trained model: {model_path}")
-            try:
-                process_video(
-                    model_path=model_path,
-                    input_video=temp_input_path,
-                    output_video=temp_output_path,
-                    width=width
-                )
-                logger.info("Model processing completed successfully")
-            except Exception as e:
-                logger.error(f"Model processing failed: {e}, falling back to demo style")
-                traceback.print_exc()
-                process_video_with_demo_style(
-                    style_id=style_id,
-                    input_path=temp_input_path,
-                    output_path=temp_output_path,
-                    target_width=width
-                )
-        else:
-            logger.warning(f"No trained model found for {style_id}, using demo processing")
-            process_video_with_demo_style(
-                style_id=style_id,
-                input_path=temp_input_path,
-                output_path=temp_output_path,
-                target_width=width
-            )
-        
-        logger.info(f"Video processing completed, output at: {temp_output_path}")
-        
-        if not os.path.exists(temp_output_path):
-            raise Exception(f"Output video file was not created: {temp_output_path}")
-        
-        output_size = os.path.getsize(temp_output_path)
-        logger.info(f"Output video size: {output_size} bytes")
-        
-        if os.path.exists(temp_input_path):
-            try:
-                os.unlink(temp_input_path)
-                logger.info(f"Cleaned up input temp file")
-            except Exception as e:
-                logger.warning(f"Failed to cleanup input file: {e}")
-        
-        def cleanup_output():
-            """Cleanup function to delete temp output file after sending"""
-            try:
-                if os.path.exists(temp_output_path):
-                    os.unlink(temp_output_path)
-                    logger.info(f"Cleaned up output temp file")
-            except Exception as e:
-                logger.error(f"Failed to cleanup output file: {e}")
-        
-        return FileResponse(
-            temp_output_path,
-            media_type="video/mp4",
-            filename=f"styled_{style_id}_{file.filename}",
-            background=BackgroundTasks().add_task(cleanup_output)
-        )
-    
-    except Exception as e:
-        error_msg = f"Video transform failed: {str(e)}"
-        logger.error(error_msg)
-        traceback.print_exc()
-        
-        if temp_input_path and os.path.exists(temp_input_path):
-            try:
-                os.unlink(temp_input_path)
-                logger.info(f"Cleaned up input temp file after error")
-            except Exception as cleanup_error:
-                logger.error(f"Failed to cleanup input file: {cleanup_error}")
-        
-        if temp_output_path and os.path.exists(temp_output_path):
-            try:
-                os.unlink(temp_output_path)
-                logger.info(f"Cleaned up output temp file after error")
-            except Exception as cleanup_error:
-                logger.error(f"Failed to cleanup output file: {cleanup_error}")
-        
-        raise HTTPException(status_code=500, detail=error_msg)
-
-
-def process_video_with_demo_style(style_id: str, input_path: str, output_path: str, target_width: int = None):
-    """Process video with demo style effects when trained model is not available"""
-    logger.info(f"Starting demo style processing for: {input_path}")
-    
-    if not os.path.exists(input_path):
-        raise Exception(f"Input video file not found: {input_path}")
-    
-    cap = cv2.VideoCapture(input_path)
-    if not cap.isOpened():
-        raise Exception(f"Failed to open video with cv2: {input_path}")
-    
-    orig_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    orig_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = cap.get(cv2.CAP_PROP_FPS)
-    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    
-    if fps == 0:
-        fps = 30.0
-        logger.warning("FPS is 0, using default 30 FPS")
-    
-    logger.info(f"Video properties: {orig_width}x{orig_height}, {fps} FPS, {total_frames} frames")
-    
-    if target_width and target_width != orig_width:
-        scale = target_width / orig_width
-        new_width = target_width
-        new_height = int(orig_height * scale)
-    else:
-        new_width = orig_width
-        new_height = orig_height
-    
-    logger.info(f"Output dimensions: {new_width}x{new_height}")
-    
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter(output_path, fourcc, fps, (new_width, new_height))
-    
-    if not out.isOpened():
-        raise Exception(f"Failed to create output video writer: {output_path}")
-    
-    frame_count = 0
-    
-    try:
-        while cap.isOpened():
-            ret, frame = cap.read()
-            if not ret:
-                break
-            
-            if target_width and target_width != orig_width:
-                frame = cv2.resize(frame, (new_width, new_height))
-            
-            img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            
-            pil_img = Image.fromarray(img_rgb)
-            output_pil = apply_demo_style(pil_img, style_id)
-            output_img = np.array(output_pil)
-            
-            output_bgr = cv2.cvtColor(output_img, cv2.COLOR_RGB2BGR)
-            
-            out.write(output_bgr)
-            
-            frame_count += 1
-            
-            if frame_count % 30 == 0:
-                progress = (frame_count / total_frames) * 100 if total_frames > 0 else 0
-                logger.info(f"Processed frame {frame_count}/{total_frames} ({progress:.1f}%)")
-    
-    finally:
-        cap.release()
-        out.release()
-    
-    logger.info(f"Video processing complete: {frame_count} frames processed")
-
+async def index():
+    return HTMLResponse(content=HTML_CONTENT)
 
 if __name__ == "__main__":
     import uvicorn
-    
-    MODEL_DIR.mkdir(parents=True, exist_ok=True)
-    STYLE_DIR.mkdir(parents=True, exist_ok=True)
-    
-    logger.info("Starting server on http://0.0.0.0:8000")
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+
+    uvicorn.run(app, host="0.0.0.0", port=8001)
