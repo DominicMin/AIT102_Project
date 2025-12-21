@@ -19,11 +19,8 @@ import time
 import onnxruntime as ort
 import asyncio
 
-sys.path.insert(0, str(Path(__file__).parent / "style_transfer"))
-from model import make_style_transfer_network
 
-sys.path.insert(0, str(Path(__file__).parent))
-from video_demo import process_video
+from utils import make_style_transfer_network, process_video
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

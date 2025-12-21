@@ -7,8 +7,10 @@ import tf2onnx
 import onnx
 
 # Local Imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.style_transfer.model import make_style_transfer_network
+
+# Local Imports
+import utils
+from utils import make_style_transfer_network
 
 def export_to_onnx(model_path, output_path):
     print(f"Loading Keras model from {model_path}...")

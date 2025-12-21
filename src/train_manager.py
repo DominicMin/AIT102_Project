@@ -3,9 +3,8 @@ import argparse
 import sys
 
 # Add current directory to path to import train_v2
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from train_v2 import StyleTransferTrainerV2
+from utils import StyleTransferTrainerV2
 
 def run_training_for_style(style_base_name):
     # Paths
