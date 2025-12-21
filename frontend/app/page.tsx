@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import axios from 'axios'
+import ImageCropper from '../components/ImageCropper'
 
 interface StyleResult {
   style_id: string
@@ -20,6 +21,10 @@ export default function Home() {
   const [selectedStyle, setSelectedStyle] = useState<string>('sketch')
   const [videoProcessing, setVideoProcessing] = useState(false)
   const [processedVideoUrl, setProcessedVideoUrl] = useState<string | null>(null)
+
+  // Cropping state
+  const [isCropping, setIsCropping] = useState(false)
+  const [tempImageSrc, setTempImageSrc] = useState<string | null>(null)
 
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault()
@@ -44,10 +49,10 @@ export default function Home() {
   const handleFile = (file: File) => {
     const isVideoFile = file.type.startsWith('video/')
     const isImageFile = file.type.startsWith('image/')
-    
-    if (isVideoFile || isImageFile) {
+
+    if (isVideoFile) {
       setSelectedFile(file)
-      setIsVideo(isVideoFile)
+      setIsVideo(true)
       const reader = new FileReader()
       reader.onloadend = () => {
         setPreviewUrl(reader.result as string)
@@ -55,7 +60,39 @@ export default function Home() {
       reader.readAsDataURL(file)
       setResults([])
       setProcessedVideoUrl(null)
+    } else if (isImageFile) {
+      // Start cropping flow for images
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setTempImageSrc(reader.result as string)
+        setIsCropping(true)
+      }
+      reader.readAsDataURL(file)
+      setIsVideo(false)
     }
+  }
+
+  const handleCropComplete = (croppedBlob: Blob) => {
+    // Create a new File from the blob
+    const file = new File([croppedBlob], "cropped_image.jpg", { type: "image/jpeg" })
+
+    setSelectedFile(file)
+
+    const reader = new FileReader()
+    reader.onloadend = () => {
+      setPreviewUrl(reader.result as string)
+    }
+    reader.readAsDataURL(file)
+
+    setResults([])
+    setProcessedVideoUrl(null)
+    setIsCropping(false)
+    setTempImageSrc(null)
+  }
+
+  const handleCropCancel = () => {
+    setIsCropping(false)
+    setTempImageSrc(null)
   }
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,11 +144,11 @@ export default function Home() {
           console.log('Upload progress:', progressEvent.loaded, '/', progressEvent.total)
         },
       })
-      
+
       const videoBlob = new Blob([response.data], { type: 'video/mp4' })
       const videoUrl = URL.createObjectURL(videoBlob)
       setProcessedVideoUrl(videoUrl)
-      
+
       alert('Video processed successfully!')
     } catch (error: any) {
       console.error('Video transform failed:', error)
@@ -146,6 +183,17 @@ export default function Home() {
       </header>
 
       <main className="container mx-auto px-6 py-12">
+        {/* Cropping Modal */}
+        <AnimatePresence>
+          {isCropping && tempImageSrc && (
+            <ImageCropper
+              imageSrc={tempImageSrc}
+              onCropComplete={handleCropComplete}
+              onCancel={handleCropCancel}
+            />
+          )}
+        </AnimatePresence>
+
         {/* Hero Section */}
         <AnimatePresence mode="wait">
           {!results.length ? (
@@ -170,13 +218,12 @@ export default function Home() {
                   onDragLeave={handleDrag}
                   onDragOver={handleDrag}
                   onDrop={handleDrop}
-                  className={`relative border-2 border-dashed rounded-2xl p-12 transition-all duration-300 ${
-                    dragActive
-                      ? 'border-blue-500 bg-blue-500/10'
-                      : previewUrl
+                  className={`relative border-2 border-dashed rounded-2xl p-12 transition-all duration-300 ${dragActive
+                    ? 'border-blue-500 bg-blue-500/10'
+                    : previewUrl
                       ? 'border-gray-700'
                       : 'border-gray-700 hover:border-gray-600'
-                  }`}
+                    }`}
                 >
                   {!previewUrl && (
                     <input
@@ -186,7 +233,7 @@ export default function Home() {
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
                   )}
-                  
+
                   {previewUrl ? (
                     <div className="space-y-4">
                       {isVideo ? (
@@ -286,16 +333,16 @@ export default function Home() {
                             </p>
                           </div>
                           <div className="flex-shrink-0">
-                            <svg 
-                              className="w-8 h-8 text-blue-400" 
-                              fill="none" 
-                              stroke="currentColor" 
+                            <svg
+                              className="w-8 h-8 text-blue-400"
+                              fill="none"
+                              stroke="currentColor"
                               viewBox="0 0 24 24"
                               strokeWidth={2}
                             >
-                              <path 
-                                strokeLinecap="round" 
-                                strokeLinejoin="round" 
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M13 7l5 5m0 0l-5 5m5-5H6"
                               />
                             </svg>
@@ -332,7 +379,7 @@ export default function Home() {
                         <p className="text-sm text-blue-300 text-center">This may take several minutes depending on video length</p>
                       </div>
                     )}
-                    
+
                     {!isVideo ? (
                       <button
                         onClick={handleTransformAll}
@@ -372,7 +419,7 @@ export default function Home() {
                         🎬 Process Video with Style
                       </button>
                     )}
-                    
+
                     {processedVideoUrl && isVideo && (
                       <div className="mt-6 max-w-4xl mx-auto">
                         <div className="p-8 bg-gray-800 rounded-xl">
@@ -436,16 +483,16 @@ export default function Home() {
                   }}
                   className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-xl font-bold"
                 >
-                  <svg 
-                    className="w-6 h-6" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                     strokeWidth={2.5}
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M10 19l-7-7m0 0l7-7m-7 7h18"
                     />
                   </svg>
@@ -454,7 +501,7 @@ export default function Home() {
               </div>
 
               {/* Results Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Original Image */}
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
@@ -466,7 +513,7 @@ export default function Home() {
                     <img
                       src={previewUrl || ''}
                       alt="Original"
-                      className="w-full h-64 object-cover"
+                      className="w-full aspect-square object-cover"
                     />
                     <div className="p-4 border-t border-gray-800">
                       <h3 className="font-semibold text-lg">Original</h3>
@@ -488,7 +535,7 @@ export default function Home() {
                       <img
                         src={`data:image/jpeg;base64,${result.image_base64}`}
                         alt={result.style_id}
-                        className="w-full h-64 object-cover"
+                        className="w-full aspect-square object-cover"
                       />
                       <div className="p-4 border-t border-gray-800">
                         <h3 className="font-semibold text-lg capitalize">
@@ -513,17 +560,16 @@ export default function Home() {
             className="bg-gray-900 rounded-2xl p-8 max-w-md w-full border border-gray-700"
           >
             <h3 className="text-2xl font-bold mb-6">Select Video Style</h3>
-            
+
             <div className="space-y-4 mb-6">
               {['sketch', 'cyberpunk', 'picasso', 'vangogh'].map((style) => (
                 <button
                   key={style}
                   onClick={() => setSelectedStyle(style)}
-                  className={`w-full px-6 py-4 rounded-xl font-semibold text-lg transition-all ${
-                    selectedStyle === style
-                      ? 'bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg'
-                      : 'bg-gray-800 hover:bg-gray-700'
-                  }`}
+                  className={`w-full px-6 py-4 rounded-xl font-semibold text-lg transition-all ${selectedStyle === style
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg'
+                    : 'bg-gray-800 hover:bg-gray-700'
+                    }`}
                 >
                   {style.charAt(0).toUpperCase() + style.slice(1)}
                 </button>
